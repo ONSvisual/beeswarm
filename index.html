@@ -105,7 +105,7 @@ function drawGraphic() {
 
 
 	  var simulation = d3.forceSimulation(graphic_data)
-		  .force("x", d3.forceX(function(d) { return x(d.value); }).strength(2))
+		  .force("x", d3.forceX(function(d) { return x(d.value); }).strength(1))
 		  .force("y", d3.forceY(height / 2))
 		  .force("collide", d3.forceCollide(6))
 		  .stop();
@@ -166,7 +166,6 @@ if (Modernizr.svg) {
 	d3.json("config.json", function(error, config) {
 	dvc=config
 
-	console.log(config);
 		//load chart data
 		d3.csv(dvc.essential.graphic_data_url, function(error, data) {
       data.forEach(function(d){
