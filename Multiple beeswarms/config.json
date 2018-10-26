@@ -1,0 +1,15 @@
+{
+    "essential" : {
+            "graphic_data_url": "datapay.csv",
+            "colour_palette": ["#a6cee3","#1f78b4","#b2df8a","#33a02c","#fb9a99","#e31a1c","#fdbf6f","#ff7f00","#cab2d6"],
+            "sourceText":["Office for National Statistics"],
+            "xAxisLabel":"% hrte",
+            "xAxisScale":[0,110000],
+            "heightperstrip":55,
+            "dotradius":3
+    },
+    "optional" : {
+            "mobileBreakpoint" : 610,
+            "x_num_ticks_sm_md" : [6,10]
+    }
+}
