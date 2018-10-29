@@ -1,0 +1,13 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+            "colour_palette": "#008080",
+            "sourceText":["Statistics"],
+            "xAxisLabel":"% hrte",
+            "xAxisScale":[0,100]          
+    },
+    "optional" : {
+            "mobileBreakpoint" : 610, 
+            "x_num_ticks_sm_md" : [6,10]
+    }
+}
