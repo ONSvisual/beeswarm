@@ -134,7 +134,6 @@ function drawGraphic() {
 
 	  var cell = g.append("g")
 		  .attr("class", "cells")
-      // .attr("transform", "translate(0,"+margin.top+")")
 		.selectAll("g").data(d3.voronoi()
 			.extent([[-margin.left,-height/2], [width + margin.right, height/2]])
 			.x(function(d) { return d.x; })
@@ -143,7 +142,7 @@ function drawGraphic() {
 
 	  cell.append("circle")
 		  .attr("r", 5)
-		  .attr("cx", function(d,i) { return d.data.x; })
+		  .attr("cx", function(d) { return d.data.x; })
 		  .attr("cy", function(d) { return d.data.y+height/2; })
 		  .attr("fill",dvc.essential.colour_palette);
 
