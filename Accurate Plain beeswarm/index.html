@@ -105,18 +105,18 @@ function drawGraphic() {
 	}
 
 
-	  var simulation = d3.forceSimulation(graphic_data)
-		  .force("x", d3.forceX(function(d) { return x(d.value); }).strength(1))
-		  .force("y", d3.forceY(height / 2))
-		  .force("collide", d3.forceCollide(6))
-		  .stop();
-
-	  for (var i = 0; i < 120; ++i) simulation.tick();
+	  // var simulation = d3.forceSimulation(graphic_data)
+		//   .force("x", d3.forceX(function(d) { return x(d.value); }).strength(1))
+		//   .force("y", d3.forceY(height / 2))
+		//   .force("collide", d3.forceCollide(6))
+		//   .stop();
+    //
+	  // for (var i = 0; i < 120; ++i) simulation.tick();
 
     //begin: arrange data with d3-beeswarm
     var beeswarm = d3.beeswarm()
         .data(graphic_data.sort(function(a,b) { return b.value-a.value; }))
-    		.radius(4)
+    		.radius(6)
         .distributeOn(function(d) { return x(d.value);})
         .arrange();
 		//end: arrange data with d3-beeswarm
@@ -136,22 +136,24 @@ function drawGraphic() {
 
 	  var cell = g.append("g")
 		  .attr("class", "cells")
+      // .attr("transform", "translate(0,"+margin.top+")")
 		.selectAll("g").data(d3.voronoi()
-			.extent([[-margin.left, -margin.top], [width + margin.right, height + margin.top]])
+			.extent([[-margin.left,-height/2], [width + margin.right, height/2]])
 			.x(function(d) { return d.x; })
 			.y(function(d) { return d.y; })
-		  .polygons(graphic_data)).enter().append("g");
+		  .polygons(beeswarm)).enter().append("g");
 
 	  cell.append("circle")
 		  .attr("r", 5)
-		  .attr("cx", function(d) { return d.data.x; })
-		  .attr("cy", function(d) { return d.data.y; })
+		  .attr("cx", function(d,i) { console.log(d.data.x,d.data.y+height/2);return d.data.x; })
+		  .attr("cy", function(d) { return d.data.y+height/2; })
 		  .attr("fill",dvc.essential.colour_palette);
 
 	  cell.append("path")
 		  .attr("d", function(d) { return "M" + d.join("L") + "Z"; })
+      .attr("transform", "translate(0,"+height/2+")")
 		  .on("mouseover", function(d) {
-			  d3.select("#info").html("<span id='label'>" + d.data.unique + ":</span> " + formatValue(d.data.value));
+			  d3.select("#info").html("<span id='label'>" + d.data.datum.unique + ":</span> " + formatValue(d.data.datum.value));
 		  });
 
 	//add xaxislabel
