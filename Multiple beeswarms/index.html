@@ -149,6 +149,9 @@ var pymChild = null;
 
 function drawGraphic() {
 
+  //clear the svg first
+  d3.select('svg').selectAll("*").remove()
+
   clicked = false;
 
 	var svg = d3.select("svg"),
@@ -214,7 +217,6 @@ function drawGraphic() {
 
 
     g.append("text").attr("class","label").text(groups[j]).attr("y",(heightper/2)+5).attr("x",-margin.left)
-console.log(groupeddata[j])
 	  var cell = g.append("g")
 		  .attr("class", "cells")
 		.selectAll("g").data(d3.voronoi()
