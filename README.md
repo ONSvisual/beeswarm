@@ -13,9 +13,9 @@ The files for each chart should be in the following format:
 ![folder structure](https://user-images.githubusercontent.com/2945099/48058602-bf02f000-e1ae-11e8-900f-6cb4d03edffa.png)
 The config file contains all the variables which you can adjust. Data.csv contains the data for your graph. The lib folder contains javascript libraries used.
 
-##<a name="plain"></a>Plain beeswarm
+## <a name="plain"></a>Plain beeswarm
 
-###Data file
+### Data file
 Save your data as a `.csv` file in the following format
 
 | unique  | value |
