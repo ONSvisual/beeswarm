@@ -4,10 +4,11 @@
             "colour_palette": "#008080",
             "sourceText":["Statistics"],
             "xAxisLabel":"% hrte",
-            "xAxisScale":[0,100]          
+            "xAxisScale":[0,100],
+            "svgheight":200          
     },
     "optional" : {
-            "mobileBreakpoint" : 610, 
+            "mobileBreakpoint" : 610,
             "x_num_ticks_sm_md" : [6,10]
     }
 }
