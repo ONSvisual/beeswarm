@@ -63,7 +63,7 @@ body {
 <div id="info">
 </div>
 <div>
-	<svg width="100%" height="200"></svg>
+	<svg width="100%"></svg>
 </div>
 <div id="source"></div>
 
@@ -83,7 +83,9 @@ var pymChild = null;
 function drawGraphic() {
 
 	var svg = d3.select("svg"),
-		margin = {top: 10, right: 40, bottom: 40, left: 10},
+		margin = {top: 10, right: 40, bottom: 40, left: 10};
+
+    svg.attr("height",dvc.essential.svgheight)
 
 		svgwidth =  parseInt(svg.style("width"));
 
