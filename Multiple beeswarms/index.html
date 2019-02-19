@@ -331,6 +331,10 @@ function drawGraphic() {
       			var menuarea = d3.zip(dropnames,dropcodes).sort(function(a, b){ return d3.ascending(a[0], b[0]); });
       			//menuarea.shift();
       			//menuarea.shift();
+
+            //clear dropdown
+            d3.select("#dropdown").selectAll("*").remove()
+
       			// Build option menu for occupations
       			var optns = d3.select("#dropdown").append("div").attr("id","sel").append("select")
       				.attr("id","dropselect")
