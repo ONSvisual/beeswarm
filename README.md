@@ -4,7 +4,7 @@
 - [Plain beeswarm](https://onsvisual.github.io/beeswarm/plain-beeswarm/index.html)
 - [Group beeswarm](https://onsvisual.github.io/beeswarm/group-beeswarm/index.html)
 - [Multiple beeswarms](https://onsvisual.github.io/beeswarm/multiple-beeswarms/index.html)
-- [Accurate plain beeswarm](https://onsvisual.github.io/beeswarm/accurate-plain-beeswarm/index.html)
+- [Accurate plain beeswarm](https://onsvisual.github.io/beeswarm/accurate-plain-beeswarm/)
 
 
 
