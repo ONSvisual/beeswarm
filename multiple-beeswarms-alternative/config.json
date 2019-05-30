@@ -1,0 +1,15 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+            "colour_palette": ["#206095","#339a59"],
+            "sourceText":["Public Health England - National Cancer Registration and Analysis Service, Office for National Statistics"],
+            "xAxisLabel":"1-year survival estimate (%)",
+            "xAxisScale":"auto",
+            "heightperstrip":50,
+            "dotradius":3
+    },
+    "optional" : {
+            "mobileBreakpoint" : 610,
+            "x_num_ticks_sm_md" : [6,10]
+    }
+}

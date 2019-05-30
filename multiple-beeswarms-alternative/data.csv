@@ -1,0 +1,453 @@
+id,group,sex,unique,value
+Prostate,East of England,Male,East of England,97.1
+Prostate,Wessex,Male,Wessex,97.1
+Prostate,West Midlands,Male,West Midlands,97
+Prostate,North East and Cumbria,Male,North East and Cumbria,96.8
+Prostate,"Somerset, Wiltshire, Avon and Gloucestershire",Male,"Somerset, Wiltshire, Avon and Gloucestershire",96.7
+Prostate,Thames Valley,Male,Thames Valley,96.7
+Breast,Thames Valley,Female,Thames Valley,96.5
+Breast,"Somerset, Wiltshire, Avon and Gloucestershire",Female,"Somerset, Wiltshire, Avon and Gloucestershire",96.4
+Breast,Surrey and Sussex,Female,Surrey and Sussex,96.4
+Prostate,"Humber, Coast and Vale",Male,"Humber, Coast and Vale",96.4
+Prostate,Peninsula,Male,Peninsula,96.4
+Prostate,East Midlands,Male,East Midlands,96.3
+Prostate,Surrey and Sussex,Male,Surrey and Sussex,96.3
+Breast,Peninsula,Female,Peninsula,96.2
+Prostate,Kent and Medway,Male,Kent and Medway,96.1
+Prostate,Lancashire and South Cumbria,Male,Lancashire and South Cumbria,96.1
+Prostate,North Central and North East London,Male,North Central and North East London,96.1
+Prostate,North West and South West London,Male,North West and South West London,96.1
+Prostate,South East London,Male,South East London,96.1
+Prostate,West Yorkshire and Harrogate,Male,West Yorkshire and Harrogate,96.1
+Breast,East of England,Female,East of England,96
+Breast,Wessex,Female,Wessex,96
+Prostate,Cheshire and Merseyside,Male,Cheshire and Merseyside,96
+Breast,North West and South West London,Female,North West and South West London,95.8
+Breast,West Midlands,Female,West Midlands,95.8
+Breast,"Humber, Coast and Vale",Female,"Humber, Coast and Vale",95.7
+Breast,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Female,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",95.7
+Breast,West Yorkshire and Harrogate,Female,West Yorkshire and Harrogate,95.7
+Prostate,Greater Manchester,Male,Greater Manchester,95.7
+Breast,East Midlands,Female,East Midlands,95.6
+Breast,North East and Cumbria,Female,North East and Cumbria,95.6
+Breast,Cheshire and Merseyside,Female,Cheshire and Merseyside,95.5
+Breast,Greater Manchester,Female,Greater Manchester,95.4
+Prostate,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Male,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",95.4
+Breast,Lancashire and South Cumbria,Female,Lancashire and South Cumbria,95.3
+Breast,South East London,Female,South East London,95.3
+Breast,Kent and Medway,Female,Kent and Medway,94.9
+Breast,North Central and North East London,Female,North Central and North East London,94.8
+Uterus,"Humber, Coast and Vale",Female,"Humber, Coast and Vale",92.1
+Uterus,"Somerset, Wiltshire, Avon and Gloucestershire",Female,"Somerset, Wiltshire, Avon and Gloucestershire",91.2
+Uterus,Peninsula,Female,Peninsula,90.8
+Uterus,Lancashire and South Cumbria,Female,Lancashire and South Cumbria,90.6
+Uterus,East Midlands,Female,East Midlands,90.4
+Uterus,Surrey and Sussex,Female,Surrey and Sussex,90.4
+Uterus,Wessex,Female,Wessex,90.2
+Uterus,West Midlands,Female,West Midlands,89.8
+Uterus,West Yorkshire and Harrogate,Female,West Yorkshire and Harrogate,89.8
+Uterus,Greater Manchester,Female,Greater Manchester,89.3
+Uterus,North West and South West London,Female,North West and South West London,89.3
+Uterus,Cheshire and Merseyside,Female,Cheshire and Merseyside,89
+Uterus,East of England,Female,East of England,88.9
+Uterus,North East and Cumbria,Female,North East and Cumbria,88.8
+Uterus,Kent and Medway,Female,Kent and Medway,88.7
+Uterus,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Female,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",88.7
+Uterus,Thames Valley,Female,Thames Valley,88.4
+Uterus,North Central and North East London,Female,North Central and North East London,87.3
+Uterus,South East London,Female,South East London,87.3
+Cervix,South East London,Female,South East London,86.5
+Rectal,"Humber, Coast and Vale",Female,"Humber, Coast and Vale",86.4
+Myeloma,North West and South West London,Male,North West and South West London,86.2
+Rectal,Peninsula,Male,Peninsula,86.1
+Rectal,Thames Valley,Male,Thames Valley,86.1
+Rectal,Wessex,Male,Wessex,86.1
+Rectal,"Humber, Coast and Vale",Male,"Humber, Coast and Vale",85.8
+Myeloma,East Midlands,Male,East Midlands,85.7
+Myeloma,East Midlands,Female,East Midlands,85.5
+Cervix,North West and South West London,Female,North West and South West London,85.1
+Myeloma,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Male,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",85.1
+Cervix,Peninsula,Female,Peninsula,85
+Rectal,North West and South West London,Female,North West and South West London,84.8
+Rectal,"Somerset, Wiltshire, Avon and Gloucestershire",Male,"Somerset, Wiltshire, Avon and Gloucestershire",84.8
+Rectal,Surrey and Sussex,Male,Surrey and Sussex,84.8
+Rectal,Kent and Medway,Female,Kent and Medway,84.7
+Rectal,Peninsula,Female,Peninsula,84.7
+Cervix,"Somerset, Wiltshire, Avon and Gloucestershire",Female,"Somerset, Wiltshire, Avon and Gloucestershire",84.7
+Rectal,"Somerset, Wiltshire, Avon and Gloucestershire",Female,"Somerset, Wiltshire, Avon and Gloucestershire",84.6
+Myeloma,Surrey and Sussex,Male,Surrey and Sussex,84.6
+Rectal,East of England,Male,East of England,84.3
+Kidney & Urinary Tract,North West and South West London,Male,North West and South West London,84.2
+Myeloma,North West and South West London,Female,North West and South West London,84.1
+Kidney & Urinary Tract,North West and South West London,Female,North West and South West London,84
+Non-Hodgkin Lymphoma,"Somerset, Wiltshire, Avon and Gloucestershire",Female,"Somerset, Wiltshire, Avon and Gloucestershire",83.9
+Myeloma,North Central and North East London,Female,North Central and North East London,83.8
+Myeloma,Cheshire and Merseyside,Male,Cheshire and Merseyside,83.8
+Myeloma,South East London,Male,South East London,83.8
+Rectal,North West and South West London,Male,North West and South West London,83.7
+Non-Hodgkin Lymphoma,Wessex,Female,Wessex,83.5
+Rectal,South East London,Male,South East London,83.5
+Rectal,North East and Cumbria,Male,North East and Cumbria,83.4
+Myeloma,Wessex,Female,Wessex,83.3
+Rectal,East of England,Female,East of England,83.1
+Non-Hodgkin Lymphoma,Peninsula,Female,Peninsula,83.1
+Rectal,West Yorkshire and Harrogate,Female,West Yorkshire and Harrogate,83.1
+Myeloma,North Central and North East London,Male,North Central and North East London,83
+Rectal,North Central and North East London,Male,North Central and North East London,83
+Rectal,Cheshire and Merseyside,Female,Cheshire and Merseyside,82.9
+Myeloma,"Somerset, Wiltshire, Avon and Gloucestershire",Male,"Somerset, Wiltshire, Avon and Gloucestershire",82.9
+Rectal,West Midlands,Male,West Midlands,82.9
+Non-Hodgkin Lymphoma,North West and South West London,Female,North West and South West London,82.8
+Rectal,Greater Manchester,Male,Greater Manchester,82.8
+Rectal,Kent and Medway,Male,Kent and Medway,82.8
+Rectal,West Yorkshire and Harrogate,Male,West Yorkshire and Harrogate,82.8
+Rectal,Cheshire and Merseyside,Male,Cheshire and Merseyside,82.7
+Myeloma,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Female,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",82.6
+Myeloma,East of England,Female,East of England,82.5
+Cervix,Lancashire and South Cumbria,Female,Lancashire and South Cumbria,82.5
+Rectal,Surrey and Sussex,Female,Surrey and Sussex,82.5
+Myeloma,"Humber, Coast and Vale",Male,"Humber, Coast and Vale",82.5
+Myeloma,Peninsula,Male,Peninsula,82.5
+Myeloma,Thames Valley,Male,Thames Valley,82.5
+Non-Hodgkin Lymphoma,Thames Valley,Female,Thames Valley,82.4
+Rectal,Thames Valley,Female,Thames Valley,82.4
+Cervix,West Midlands,Female,West Midlands,82.4
+Myeloma,Greater Manchester,Male,Greater Manchester,82.2
+Rectal,North East and Cumbria,Female,North East and Cumbria,82.1
+Non-Hodgkin Lymphoma,Surrey and Sussex,Female,Surrey and Sussex,82.1
+Myeloma,Lancashire and South Cumbria,Female,Lancashire and South Cumbria,82
+Myeloma,West Midlands,Female,West Midlands,82
+Rectal,Lancashire and South Cumbria,Male,Lancashire and South Cumbria,82
+Myeloma,Wessex,Male,Wessex,82
+Myeloma,West Midlands,Male,West Midlands,82
+Non-Hodgkin Lymphoma,East Midlands,Female,East Midlands,81.9
+Cervix,Cheshire and Merseyside,Female,Cheshire and Merseyside,81.8
+Rectal,Lancashire and South Cumbria,Female,Lancashire and South Cumbria,81.8
+Rectal,East Midlands,Male,East Midlands,81.8
+Cervix,North Central and North East London,Female,North Central and North East London,81.6
+Rectal,Wessex,Female,Wessex,81.5
+Rectal,West Midlands,Female,West Midlands,81.4
+Colorectal,Surrey and Sussex,Male,Surrey and Sussex,81.4
+Colorectal,Wessex,Male,Wessex,81.4
+Myeloma,Cheshire and Merseyside,Female,Cheshire and Merseyside,81.3
+Bladder,"Humber, Coast and Vale",Male,"Humber, Coast and Vale",81.3
+Colorectal,North West and South West London,Male,North West and South West London,81.3
+Non-Hodgkin Lymphoma,"Somerset, Wiltshire, Avon and Gloucestershire",Male,"Somerset, Wiltshire, Avon and Gloucestershire",81.2
+Cervix,East of England,Female,East of England,81.1
+Kidney & Urinary Tract,North Central and North East London,Male,North Central and North East London,81.1
+Colorectal,Thames Valley,Male,Thames Valley,81.1
+Myeloma,"Humber, Coast and Vale",Female,"Humber, Coast and Vale",81
+Rectal,South East London,Female,South East London,81
+Myeloma,Kent and Medway,Female,Kent and Medway,80.9
+Non-Hodgkin Lymphoma,North West and South West London,Male,North West and South West London,80.9
+Cervix,West Yorkshire and Harrogate,Female,West Yorkshire and Harrogate,80.8
+Myeloma,"Somerset, Wiltshire, Avon and Gloucestershire",Female,"Somerset, Wiltshire, Avon and Gloucestershire",80.7
+Rectal,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Female,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",80.7
+Kidney & Urinary Tract,South East London,Male,South East London,80.7
+Colorectal,Peninsula,Male,Peninsula,80.6
+Rectal,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Male,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",80.6
+Non-Hodgkin Lymphoma,Cheshire and Merseyside,Female,Cheshire and Merseyside,80.5
+Myeloma,Thames Valley,Female,Thames Valley,80.5
+Non-Hodgkin Lymphoma,Peninsula,Male,Peninsula,80.5
+Cervix,East Midlands,Female,East Midlands,80.4
+Kidney & Urinary Tract,Thames Valley,Female,Thames Valley,80.4
+Kidney & Urinary Tract,North Central and North East London,Female,North Central and North East London,80.3
+Non-Hodgkin Lymphoma,East of England,Female,East of England,80.2
+Rectal,Greater Manchester,Female,Greater Manchester,80.2
+Non-Hodgkin Lymphoma,"Humber, Coast and Vale",Female,"Humber, Coast and Vale",80.2
+Non-Hodgkin Lymphoma,Kent and Medway,Female,Kent and Medway,80.1
+Cervix,Wessex,Female,Wessex,80.1
+Non-Hodgkin Lymphoma,West Midlands,Female,West Midlands,80.1
+Rectal,East Midlands,Female,East Midlands,80
+Bladder,Cheshire and Merseyside,Male,Cheshire and Merseyside,80
+Bladder,Kent and Medway,Male,Kent and Medway,80
+Colorectal,Surrey and Sussex,Female,Surrey and Sussex,79.9
+Colorectal,"Humber, Coast and Vale",Male,"Humber, Coast and Vale",79.9
+Bladder,Peninsula,Male,Peninsula,79.9
+Kidney & Urinary Tract,Thames Valley,Male,Thames Valley,79.9
+Myeloma,East of England,Male,East of England,79.7
+Colon,North West and South West London,Male,North West and South West London,79.7
+Cervix,Greater Manchester,Female,Greater Manchester,79.6
+Myeloma,Surrey and Sussex,Female,Surrey and Sussex,79.6
+Colorectal,East of England,Male,East of England,79.6
+Colorectal,South East London,Male,South East London,79.6
+Non-Hodgkin Lymphoma,Wessex,Male,Wessex,79.6
+Myeloma,Greater Manchester,Female,Greater Manchester,79.5
+Colorectal,North West and South West London,Female,North West and South West London,79.5
+Myeloma,Lancashire and South Cumbria,Male,Lancashire and South Cumbria,79.5
+Colorectal,North Central and North East London,Male,North Central and North East London,79.5
+Colorectal,"Somerset, Wiltshire, Avon and Gloucestershire",Male,"Somerset, Wiltshire, Avon and Gloucestershire",79.5
+Kidney & Urinary Tract,West Yorkshire and Harrogate,Female,West Yorkshire and Harrogate,79.4
+Colorectal,Cheshire and Merseyside,Male,Cheshire and Merseyside,79.3
+Kidney & Urinary Tract,"Somerset, Wiltshire, Avon and Gloucestershire",Male,"Somerset, Wiltshire, Avon and Gloucestershire",79.3
+Colorectal,West Yorkshire and Harrogate,Male,West Yorkshire and Harrogate,79.3
+Colon,Surrey and Sussex,Male,Surrey and Sussex,79.2
+Kidney & Urinary Tract,Surrey and Sussex,Male,Surrey and Sussex,79.1
+Colorectal,West Midlands,Male,West Midlands,79.1
+Myeloma,West Yorkshire and Harrogate,Male,West Yorkshire and Harrogate,79.1
+Non-Hodgkin Lymphoma,North East and Cumbria,Female,North East and Cumbria,79
+Colon,Surrey and Sussex,Female,Surrey and Sussex,79
+Non-Hodgkin Lymphoma,East of England,Male,East of England,79
+Bladder,Lancashire and South Cumbria,Male,Lancashire and South Cumbria,79
+Colorectal,Kent and Medway,Male,Kent and Medway,78.9
+Non-Hodgkin Lymphoma,North Central and North East London,Female,North Central and North East London,78.8
+Rectal,North Central and North East London,Female,North Central and North East London,78.8
+Bladder,East of England,Male,East of England,78.8
+Colorectal,South East London,Female,South East London,78.7
+Colorectal,Wessex,Female,Wessex,78.7
+Colorectal,Lancashire and South Cumbria,Male,Lancashire and South Cumbria,78.7
+Bladder,North East and Cumbria,Male,North East and Cumbria,78.7
+Colorectal,North East and Cumbria,Male,North East and Cumbria,78.7
+Bladder,Surrey and Sussex,Male,Surrey and Sussex,78.7
+Cervix,North East and Cumbria,Female,North East and Cumbria,78.6
+Kidney & Urinary Tract,"Somerset, Wiltshire, Avon and Gloucestershire",Female,"Somerset, Wiltshire, Avon and Gloucestershire",78.6
+Colorectal,Thames Valley,Female,Thames Valley,78.6
+Colorectal,East Midlands,Male,East Midlands,78.6
+Non-Hodgkin Lymphoma,East Midlands,Male,East Midlands,78.6
+Kidney & Urinary Tract,"Humber, Coast and Vale",Male,"Humber, Coast and Vale",78.6
+Colon,Wessex,Male,Wessex,78.6
+Colorectal,Greater Manchester,Male,Greater Manchester,78.5
+Bladder,North West and South West London,Male,North West and South West London,78.5
+Kidney & Urinary Tract,Greater Manchester,Female,Greater Manchester,78.4
+Myeloma,West Yorkshire and Harrogate,Female,West Yorkshire and Harrogate,78.4
+Kidney & Urinary Tract,South East London,Female,South East London,78.3
+Non-Hodgkin Lymphoma,North Central and North East London,Male,North Central and North East London,78.3
+Colon,Thames Valley,Male,Thames Valley,78.3
+Non-Hodgkin Lymphoma,Thames Valley,Male,Thames Valley,78.3
+Non-Hodgkin Lymphoma,West Yorkshire and Harrogate,Male,West Yorkshire and Harrogate,78.3
+Myeloma,Peninsula,Female,Peninsula,78.2
+Non-Hodgkin Lymphoma,South East London,Female,South East London,78.2
+Bladder,West Yorkshire and Harrogate,Male,West Yorkshire and Harrogate,78.2
+Non-Hodgkin Lymphoma,Greater Manchester,Female,Greater Manchester,78.1
+Colorectal,West Yorkshire and Harrogate,Female,West Yorkshire and Harrogate,78.1
+Non-Hodgkin Lymphoma,West Yorkshire and Harrogate,Female,West Yorkshire and Harrogate,78.1
+Bladder,East Midlands,Male,East Midlands,78.1
+Kidney & Urinary Tract,Cheshire and Merseyside,Female,Cheshire and Merseyside,78
+Myeloma,North East and Cumbria,Male,North East and Cumbria,78
+Kidney & Urinary Tract,Peninsula,Male,Peninsula,78
+Non-Hodgkin Lymphoma,Surrey and Sussex,Male,Surrey and Sussex,78
+Bladder,Thames Valley,Male,Thames Valley,78
+Non-Hodgkin Lymphoma,West Midlands,Male,West Midlands,78
+Kidney & Urinary Tract,West Yorkshire and Harrogate,Male,West Yorkshire and Harrogate,78
+Colorectal,Peninsula,Female,Peninsula,77.9
+Non-Hodgkin Lymphoma,Kent and Medway,Male,Kent and Medway,77.9
+Kidney & Urinary Tract,Wessex,Male,Wessex,77.9
+Cervix,Kent and Medway,Female,Kent and Medway,77.8
+Colorectal,Kent and Medway,Female,Kent and Medway,77.8
+Colorectal,"Somerset, Wiltshire, Avon and Gloucestershire",Female,"Somerset, Wiltshire, Avon and Gloucestershire",77.8
+Colon,Wessex,Female,Wessex,77.8
+Kidney & Urinary Tract,Cheshire and Merseyside,Male,Cheshire and Merseyside,77.8
+Bladder,North Central and North East London,Male,North Central and North East London,77.8
+Kidney & Urinary Tract,North East and Cumbria,Female,North East and Cumbria,77.7
+Colon,South East London,Female,South East London,77.7
+Myeloma,South East London,Female,South East London,77.7
+Myeloma,Kent and Medway,Male,Kent and Medway,77.7
+Kidney & Urinary Tract,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Male,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",77.7
+Bladder,West Midlands,Male,West Midlands,77.7
+Kidney & Urinary Tract,Kent and Medway,Female,Kent and Medway,77.6
+Non-Hodgkin Lymphoma,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Female,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",77.6
+Kidney & Urinary Tract,Wessex,Female,Wessex,77.6
+Colon,North Central and North East London,Male,North Central and North East London,77.6
+Kidney & Urinary Tract,North East and Cumbria,Male,North East and Cumbria,77.6
+Bladder,South East London,Male,South East London,77.6
+Kidney & Urinary Tract,Lancashire and South Cumbria,Female,Lancashire and South Cumbria,77.5
+Colon,North West and South West London,Female,North West and South West London,77.5
+Kidney & Urinary Tract,Greater Manchester,Male,Greater Manchester,77.5
+Kidney & Urinary Tract,West Midlands,Male,West Midlands,77.5
+Colorectal,Cheshire and Merseyside,Female,Cheshire and Merseyside,77.3
+Kidney & Urinary Tract,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Female,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",77.3
+Kidney & Urinary Tract,Surrey and Sussex,Female,Surrey and Sussex,77.3
+Colon,Cheshire and Merseyside,Male,Cheshire and Merseyside,77.3
+Colon,South East London,Male,South East London,77.3
+Colorectal,East of England,Female,East of England,77.2
+Colorectal,"Humber, Coast and Vale",Female,"Humber, Coast and Vale",77.2
+Kidney & Urinary Tract,Peninsula,Female,Peninsula,77.2
+Bladder,Greater Manchester,Male,Greater Manchester,77.2
+Non-Hodgkin Lymphoma,Greater Manchester,Male,Greater Manchester,77.2
+Colon,Peninsula,Male,Peninsula,77.2
+Colon,Thames Valley,Female,Thames Valley,77.1
+Colon,West Yorkshire and Harrogate,Male,West Yorkshire and Harrogate,77
+Kidney & Urinary Tract,West Midlands,Female,West Midlands,76.9
+Colon,East of England,Male,East of England,76.9
+Kidney & Urinary Tract,Lancashire and South Cumbria,Male,Lancashire and South Cumbria,76.9
+Colon,East Midlands,Male,East Midlands,76.8
+Colon,Lancashire and South Cumbria,Male,Lancashire and South Cumbria,76.8
+Bladder,Wessex,Male,Wessex,76.8
+Colon,West Midlands,Male,West Midlands,76.8
+Kidney & Urinary Tract,"Humber, Coast and Vale",Female,"Humber, Coast and Vale",76.7
+Colorectal,North Central and North East London,Female,North Central and North East London,76.5
+Cervix,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Female,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",76.5
+Cervix,Thames Valley,Female,Thames Valley,76.5
+Colorectal,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Male,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",76.5
+Colon,Kent and Medway,Male,Kent and Medway,76.4
+Bladder,"Somerset, Wiltshire, Avon and Gloucestershire",Male,"Somerset, Wiltshire, Avon and Gloucestershire",76.4
+Colorectal,West Midlands,Female,West Midlands,76.3
+Colon,"Somerset, Wiltshire, Avon and Gloucestershire",Male,"Somerset, Wiltshire, Avon and Gloucestershire",76.3
+Colorectal,East Midlands,Female,East Midlands,76.2
+Colon,"Humber, Coast and Vale",Male,"Humber, Coast and Vale",76.1
+Cervix,"Humber, Coast and Vale",Female,"Humber, Coast and Vale",76
+Colon,Greater Manchester,Male,Greater Manchester,76
+Colorectal,Lancashire and South Cumbria,Female,Lancashire and South Cumbria,75.9
+Non-Hodgkin Lymphoma,Lancashire and South Cumbria,Female,Lancashire and South Cumbria,75.9
+Colorectal,North East and Cumbria,Female,North East and Cumbria,75.9
+Colon,West Yorkshire and Harrogate,Female,West Yorkshire and Harrogate,75.9
+Colon,North East and Cumbria,Male,North East and Cumbria,75.9
+Non-Hodgkin Lymphoma,Cheshire and Merseyside,Male,Cheshire and Merseyside,75.8
+Kidney & Urinary Tract,East of England,Male,East of England,75.8
+Colon,Peninsula,Female,Peninsula,75.6
+Colorectal,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Female,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",75.6
+Colorectal,Greater Manchester,Female,Greater Manchester,75.5
+Colon,North Central and North East London,Female,North Central and North East London,75.5
+Non-Hodgkin Lymphoma,South East London,Male,South East London,75.5
+Kidney & Urinary Tract,East of England,Female,East of England,75.4
+Non-Hodgkin Lymphoma,Lancashire and South Cumbria,Male,Lancashire and South Cumbria,75.4
+Bladder,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Male,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",75.4
+Colon,"Somerset, Wiltshire, Avon and Gloucestershire",Female,"Somerset, Wiltshire, Avon and Gloucestershire",75.2
+Cervix,Surrey and Sussex,Female,Surrey and Sussex,75.2
+Kidney & Urinary Tract,Kent and Medway,Male,Kent and Medway,75.1
+Colon,Cheshire and Merseyside,Female,Cheshire and Merseyside,75
+Myeloma,North East and Cumbria,Female,North East and Cumbria,75
+Non-Hodgkin Lymphoma,"Humber, Coast and Vale",Male,"Humber, Coast and Vale",75
+Colon,East of England,Female,East of England,74.9
+Colon,Kent and Medway,Female,Kent and Medway,74.8
+Colon,East Midlands,Female,East Midlands,74.7
+Non-Hodgkin Lymphoma,North East and Cumbria,Male,North East and Cumbria,74.5
+Colon,West Midlands,Female,West Midlands,74.4
+Non-Hodgkin Lymphoma,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Male,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",74.2
+Colon,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Male,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",73.9
+Colon,Greater Manchester,Female,Greater Manchester,73.7
+Kidney & Urinary Tract,East Midlands,Female,East Midlands,73.6
+Colon,North East and Cumbria,Female,North East and Cumbria,73.5
+Kidney & Urinary Tract,East Midlands,Male,East Midlands,73.4
+Colon,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Female,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",73.3
+Colon,"Humber, Coast and Vale",Female,"Humber, Coast and Vale",73.2
+Colon,Lancashire and South Cumbria,Female,Lancashire and South Cumbria,73.2
+Bladder,North West and South West London,Female,North West and South West London,72.7
+Bladder,Peninsula,Female,Peninsula,71.4
+Bladder,"Somerset, Wiltshire, Avon and Gloucestershire",Female,"Somerset, Wiltshire, Avon and Gloucestershire",69.2
+Bladder,Cheshire and Merseyside,Female,Cheshire and Merseyside,68.3
+Bladder,Surrey and Sussex,Female,Surrey and Sussex,67.9
+Bladder,Thames Valley,Female,Thames Valley,67.5
+Bladder,Lancashire and South Cumbria,Female,Lancashire and South Cumbria,66.2
+Bladder,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Female,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",66.1
+Bladder,East of England,Female,East of England,65.1
+Bladder,Wessex,Female,Wessex,65
+Bladder,North East and Cumbria,Female,North East and Cumbria,64.6
+Bladder,West Midlands,Female,West Midlands,64.6
+Bladder,Kent and Medway,Female,Kent and Medway,64.5
+Bladder,East Midlands,Female,East Midlands,63.3
+Bladder,Greater Manchester,Female,Greater Manchester,62.2
+Bladder,South East London,Female,South East London,62
+Bladder,West Yorkshire and Harrogate,Female,West Yorkshire and Harrogate,60.9
+Bladder,North Central and North East London,Female,North Central and North East London,60.8
+Stomach,South East London,Female,South East London,56.3
+Stomach,South East London,Male,South East London,53.9
+Oesophagus,South East London,Female,South East London,52.8
+Stomach,Wessex,Female,Wessex,52.6
+Stomach,North Central and North East London,Male,North Central and North East London,51.4
+Stomach,North West and South West London,Male,North West and South West London,51.4
+Stomach,North Central and North East London,Female,North Central and North East London,51
+Oesophagus,Peninsula,Male,Peninsula,51
+Stomach,Cheshire and Merseyside,Female,Cheshire and Merseyside,50.6
+Oesophagus,"Humber, Coast and Vale",Male,"Humber, Coast and Vale",50.4
+Stomach,Peninsula,Male,Peninsula,50.4
+Stomach,North East and Cumbria,Female,North East and Cumbria,50.3
+Stomach,Wessex,Male,Wessex,50.3
+Oesophagus,North East and Cumbria,Female,North East and Cumbria,50.2
+Stomach,North West and South West London,Female,North West and South West London,50.1
+Stomach,North East and Cumbria,Male,North East and Cumbria,50.1
+Stomach,Thames Valley,Female,Thames Valley,49.4
+Oesophagus,Wessex,Male,Wessex,49.3
+Oesophagus,North West and South West London,Female,North West and South West London,49.2
+Oesophagus,Thames Valley,Male,Thames Valley,49.2
+Oesophagus,Lancashire and South Cumbria,Female,Lancashire and South Cumbria,49
+Oesophagus,Wessex,Female,Wessex,48.9
+Oesophagus,Thames Valley,Female,Thames Valley,48.7
+Stomach,West Yorkshire and Harrogate,Male,West Yorkshire and Harrogate,48.7
+Lung,North West and South West London,Female,North West and South West London,48.6
+Oesophagus,South East London,Male,South East London,48.6
+Stomach,West Yorkshire and Harrogate,Female,West Yorkshire and Harrogate,48.5
+Stomach,Surrey and Sussex,Male,Surrey and Sussex,48.4
+Stomach,Lancashire and South Cumbria,Female,Lancashire and South Cumbria,48.2
+Oesophagus,Peninsula,Female,Peninsula,47.7
+Oesophagus,Greater Manchester,Female,Greater Manchester,47.5
+Oesophagus,Surrey and Sussex,Male,Surrey and Sussex,47.5
+Stomach,"Somerset, Wiltshire, Avon and Gloucestershire",Female,"Somerset, Wiltshire, Avon and Gloucestershire",47.4
+Lung,West Yorkshire and Harrogate,Female,West Yorkshire and Harrogate,47.4
+Oesophagus,West Yorkshire and Harrogate,Male,West Yorkshire and Harrogate,47.4
+Oesophagus,East Midlands,Male,East Midlands,47.3
+Oesophagus,East of England,Male,East of England,47.2
+Stomach,East Midlands,Male,East Midlands,47
+Stomach,East of England,Female,East of England,46.9
+Oesophagus,North East and Cumbria,Male,North East and Cumbria,46.9
+Stomach,Thames Valley,Male,Thames Valley,46.9
+Lung,South East London,Female,South East London,46.8
+Oesophagus,Lancashire and South Cumbria,Male,Lancashire and South Cumbria,46.7
+Oesophagus,"Somerset, Wiltshire, Avon and Gloucestershire",Female,"Somerset, Wiltshire, Avon and Gloucestershire",46.6
+Stomach,Greater Manchester,Male,Greater Manchester,46.4
+Oesophagus,Surrey and Sussex,Female,Surrey and Sussex,46.3
+Stomach,East of England,Male,East of England,46.2
+Oesophagus,East Midlands,Female,East Midlands,46.1
+Stomach,Lancashire and South Cumbria,Male,Lancashire and South Cumbria,46.1
+Stomach,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Female,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",46
+Stomach,Cheshire and Merseyside,Male,Cheshire and Merseyside,46
+Stomach,East Midlands,Female,East Midlands,45.8
+Lung,Peninsula,Female,Peninsula,45.8
+Oesophagus,North Central and North East London,Male,North Central and North East London,45.8
+Oesophagus,North West and South West London,Male,North West and South West London,45.3
+Stomach,West Midlands,Male,West Midlands,45.3
+Oesophagus,Greater Manchester,Male,Greater Manchester,45.2
+Stomach,Surrey and Sussex,Female,Surrey and Sussex,45.1
+Lung,Thames Valley,Female,Thames Valley,45.1
+Oesophagus,"Somerset, Wiltshire, Avon and Gloucestershire",Male,"Somerset, Wiltshire, Avon and Gloucestershire",45
+Oesophagus,East of England,Female,East of England,44.7
+Lung,North Central and North East London,Female,North Central and North East London,44.4
+Oesophagus,West Yorkshire and Harrogate,Female,West Yorkshire and Harrogate,44.3
+Oesophagus,West Midlands,Male,West Midlands,44.3
+Oesophagus,Cheshire and Merseyside,Female,Cheshire and Merseyside,44.2
+Lung,Cheshire and Merseyside,Female,Cheshire and Merseyside,44.1
+Oesophagus,Cheshire and Merseyside,Male,Cheshire and Merseyside,44
+Lung,Wessex,Female,Wessex,43.8
+Stomach,"Humber, Coast and Vale",Male,"Humber, Coast and Vale",43.8
+Lung,Surrey and Sussex,Female,Surrey and Sussex,43.3
+Stomach,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Male,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",43.3
+Stomach,Peninsula,Female,Peninsula,43.2
+Stomach,"Somerset, Wiltshire, Avon and Gloucestershire",Male,"Somerset, Wiltshire, Avon and Gloucestershire",43.2
+Lung,East of England,Female,East of England,43.1
+Lung,"Somerset, Wiltshire, Avon and Gloucestershire",Female,"Somerset, Wiltshire, Avon and Gloucestershire",42.9
+Oesophagus,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Male,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",42.9
+Lung,East Midlands,Female,East Midlands,42.5
+Stomach,Kent and Medway,Female,Kent and Medway,42.4
+Stomach,Kent and Medway,Male,Kent and Medway,42.4
+Lung,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Female,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",42.3
+Oesophagus,Kent and Medway,Female,Kent and Medway,42.2
+Oesophagus,North Central and North East London,Female,North Central and North East London,42.1
+Lung,Greater Manchester,Female,Greater Manchester,42
+Lung,North East and Cumbria,Female,North East and Cumbria,41.8
+Stomach,Greater Manchester,Female,Greater Manchester,41.6
+Oesophagus,Kent and Medway,Male,Kent and Medway,41.1
+Lung,West Midlands,Female,West Midlands,40.7
+Stomach,West Midlands,Female,West Midlands,40.6
+Lung,"Humber, Coast and Vale",Female,"Humber, Coast and Vale",40.1
+Lung,North West and South West London,Male,North West and South West London,39.9
+Oesophagus,West Midlands,Female,West Midlands,39.8
+Lung,Kent and Medway,Female,Kent and Medway,39.6
+Lung,Lancashire and South Cumbria,Female,Lancashire and South Cumbria,39.2
+Lung,South East London,Male,South East London,38.7
+Lung,North Central and North East London,Male,North Central and North East London,38.6
+Lung,Thames Valley,Male,Thames Valley,37.7
+Lung,West Yorkshire and Harrogate,Male,West Yorkshire and Harrogate,37.7
+Lung,Cheshire and Merseyside,Male,Cheshire and Merseyside,37.5
+Lung,"Somerset, Wiltshire, Avon and Gloucestershire",Male,"Somerset, Wiltshire, Avon and Gloucestershire",37.4
+Lung,Wessex,Male,Wessex,37
+Lung,Greater Manchester,Male,Greater Manchester,36.8
+Lung,Peninsula,Male,Peninsula,36.3
+Lung,Surrey and Sussex,Male,Surrey and Sussex,36
+Lung,East of England,Male,East of England,35.9
+Lung,"Humber, Coast and Vale",Male,"Humber, Coast and Vale",35.7
+Lung,East Midlands,Male,East Midlands,35.6
+Lung,North East and Cumbria,Male,North East and Cumbria,35.5
+Lung,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",Male,"South Yorkshire, Bassetlaw, North Derbyshire and Hardwick",35.2
+Lung,West Midlands,Male,West Midlands,34.1
+Lung,Kent and Medway,Male,Kent and Medway,33.5
+Lung,Lancashire and South Cumbria,Male,Lancashire and South Cumbria,32.9
