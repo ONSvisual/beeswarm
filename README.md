@@ -5,6 +5,7 @@
 - [Group beeswarm](https://onsvisual.github.io/beeswarm/group-beeswarm/index.html)
 - [Multiple beeswarms](https://onsvisual.github.io/beeswarm/multiple-beeswarms/index.html)
 - [Accurate plain beeswarm](https://onsvisual.github.io/beeswarm/accurate-plain-beeswarm/)
+- [Multiple beeswarm alternative](https://onsvisual.github.io/beeswarm/multiple-beeswarms-alternative/index.html)
 
 
 
@@ -82,7 +83,7 @@ Set the preference for number of ticks on x-axis. This can be overridden by D3.
 ## <a name="group"></a>Group beeswarm
 
 ### Data file
-Save your data as a `.csv` file in the following format. The id field refers to the group for that value. All values for that group will be coloured in a separate colour. 
+Save your data as a `.csv` file in the following format. The id field refers to the group for that value. All values for that group will be coloured in a separate colour.
 
 | id      | unique  | value |
 | ------- | ------- | ----- |
@@ -104,7 +105,7 @@ Tells the chart the filename for the data.
 
 ```"colour_palette": ["#66c2a5","#fc8d62","#8da0cb","#e78ac3","#a6d854","#ffd92f"]```
 
-Sets the colour for each group of dots. You need as many colours as the groups in your data. 
+Sets the colour for each group of dots. You need as many colours as the groups in your data.
 
 ```"sourceText":["Statistics"]```
 
@@ -157,7 +158,7 @@ Tells the chart the filename for the data.
 
 ```"colour_palette": ["#66c2a5","#fc8d62","#8da0cb","#e78ac3","#a6d854","#ffd92f"]```
 
-Sets the colour for each group of dots. You need as many colours as the groups in your data. 
+Sets the colour for each group of dots. You need as many colours as the groups in your data.
 
 ```"sourceText":["Statistics"]```
 
