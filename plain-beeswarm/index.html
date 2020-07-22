@@ -84,6 +84,9 @@ function drawGraphic() {
 	var svg = d3.select("svg"),
 		margin = {top: 10, right: 40, bottom: 40, left: 10}
 
+    svg.selectAll("*").remove()
+    d3.select("#legend").selectAll("*").remove()
+    
     svg.attr("height",dvc.essential.svgheight)
 		svgwidth =  parseInt(svg.style("width"));
 
