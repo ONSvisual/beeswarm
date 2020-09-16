@@ -1,7 +1,8 @@
 {
     "essential" : {
             "graphic_data_url": "data.csv",
-            "colour_palette": ["#1E5C92","#CD842F","#5B0F44","#039E82","#B1295E","#5999D1","#3A1E82","#BE3E24","#1E4943"],
+            "colour_palette_original": ["#1E5C92","#CD842F","#5B0F44","#039E82","#B1295E","#5999D1","#3A1E82","#BE3E24","#1E4943"],
+            "colour_palette": ["#206095", "#118C7B", "#003C57", "#A8BD3A", "#27A0CC","#871A5B","#F66068","#746CB1","#22D0B6"],
             "sourceText":["Office for National Statistics"],
             "xAxisLabel":"",
             "xAxisScale":[0,100000],
