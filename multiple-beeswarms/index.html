@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>Occupation pay explorer</title>
-  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <meta name='viewport' content='initial-scale=1' />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,bold" rel="stylesheet">
   <link href="./css/style-chosen.css" rel="stylesheet" />
 
@@ -16,17 +16,68 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
-#dropdown {
-  position:relative;
-  height:42px;
-  max-width:700px;
-	width: 100%;
+.dropdown {
+  height: 44px;
+  border-style: solid;
+  color: #206095;
+  background-color: #FFF;
+  font-size: 1.1em;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  padding-left: 6px;
+  margin-bottom: 20px;
+  border: 2px solid #206095;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+.dropdown:focus-within{
+  box-shadow: 0 0 0px 3pt orange;
+}
+
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+#selectnav::before {
+
+  height: 43px;
+  width: 46px;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  background: #206095;
+  content: '';
+  pointer-events: none;
+
+}
+
+#selectnav::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  right: 17px;
+  bottom: 0;
+  margin: 18px 0 0 0;
+  border-style: solid;
+  border-width: 10px 9px 0 9px;
+  border-color: #ffffff transparent transparent transparent;
+  pointer-events: none;
 }
 
 #info {
 	height:25px;
 	width:100%;
 	font-size:16px;
+  padding-top: 10px;
 }
 
 #label {
@@ -36,7 +87,7 @@ body {
 .axis path,
 .axis line {
   fill: none;
-  stroke: rgb(102,102,102);
+  stroke: none;
   shape-rendering: crispEdges;
 }
 
@@ -45,8 +96,7 @@ body {
 }
 
 .axis text, #xaxislabel {
-  font: 10px sans-serif;
-  fill: rgb(102,102,102);
+  font-family: 'Open Sans', sans-serif;
   font-size:11px;
 }
 
@@ -119,6 +169,17 @@ body {
 	font-weight: normal;
 }
 
+.visuallyhidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 </style>
 
 <div id="legend">
@@ -127,8 +188,10 @@ body {
 </div>
 <div id="info">
 </div>
+<div id="infohidden" aria-live="assertive" class="visuallyhidden">
+</div>
 <div>
-	<svg width="100%"></svg>
+  <svg width="100%"></svg>
 </div>
 <div id="source"></div>
 
@@ -223,11 +286,11 @@ function drawGraphic() {
 			.extent([[-margin.left, 0], [width + margin.right, heightper]])
 			.x(function(d) { return d.x; })
 			.y(function(d) { return d.y; })
-		  .polygons(groupeddata[j])).enter().append("g").attr("class", function(d,i){ console.log(d, i); return i})
+		  .polygons(groupeddata[j])).enter().append("g").attr("class", function(d,i){ /*console.log(d, i);*/ return i})
 
 	  cell.append("circle")
 		  .attr("r", dvc.essential.dotradius)
-		  .attr("cx", function(d) {console.log(d); return d.data.x; })
+		  .attr("cx", function(d) {/*console.log(d);*/ return d.data.x; })
 		  .attr("cy", function(d) { return d.data.y; })
 		  .attr("class", function(d,i) { return "cell cell" + (runningtotal + i)})
 		  .attr("fill",function(d){return  dvc.essential.colour_palette[groups.indexOf(d.data.id)]});
@@ -251,6 +314,7 @@ function drawGraphic() {
       //
 		  // })
 		  .on("mouseout", function(d,i) {
+
         pathidstr = d3.select(this).attr("class");
         pathid = +pathidstr.substr(4);
 
@@ -336,7 +400,12 @@ function drawGraphic() {
             d3.select("#dropdown").selectAll("*").remove()
 
       			// Build option menu for occupations
-      			var optns = d3.select("#dropdown").append("div").attr("id","sel").append("select")
+            d3.select("#dropdown").append("div").attr("id","sel").insert("label")
+            .attr("class", "visuallyhidden")
+            .attr("for", "dropselect")
+            .html("Inactive dropdown element, replaced by custom dropdown")
+
+            var optns = d3.select("#dropdown").select("#sel").append("select")
       				.attr("id","dropselect")
       				.attr("style","width:300px")
       				.attr("class","chosen-select");
@@ -351,30 +420,56 @@ function drawGraphic() {
 
       			myId=null;
 
-      			$('#dropselect').chosen({width: "98%", allow_single_deselect:true}).on('change',function(evt,params){
+      			$('#dropselect').chosen({width: "98%", allow_single_deselect:true})
+
+            d3.select('input.chosen-search-input').attr('id','chosensearchinput')
+            d3.select('div.chosen-search').insert('label','input.chosen-search-input')
+                .attr('class','visuallyhidden')
+                .attr('for','chosensearchinput')
+                .html("Type to select an occupation")
+
+
+            $('#dropselect').on('change',function(evt,params){
 
       					if($('#dropselect').val() != "") {
-      					//if(typeof params != 'undefined') {
+                //if(typeof params != 'undefined') {
                   clicked = true;
       							d3.selectAll(".cell").classed("cellsselected", false);
       							d3.selectAll(".cells path").style("pointer-events","none")
 
       							dropcode = $('#dropselect').val();
-                    console.log(dropcode)
+
                     dropcodeid = +dropcode.substr(2)
+
 
       							d3.select(".cell" + dropcodeid).classed("cellsselected", true);
       							datafilter = datacsv.filter(function(d,i) {return "id" + i == dropcode})
 
       							changetext(datafilter[0].value,datafilter[0].unique )
 
+                    d3.select('abbr').on('keypress',function(evt){
+                      if(d3.event.keyCode==13 || d3.event.keyCode==32){
+                        d3.event.preventDefault()
+
+                        clicked = false;
+
+                			  d3.select(".cell" + dropcodeid).classed("cellsselected",false)
+          							d3.selectAll(".cells path").style("pointer-events","all")
+
+                        d3.select("#info").html("");
+
+                        $("#dropselect").val(null).trigger('chosen:updated');
+                      }
+                    })
+
       					}
       					else {
-
       						clicked = false;
 
       						d3.selectAll(".cell").classed("cellsselected", false);
       						d3.selectAll(".cells path").style("pointer-events","all");
+
+                  d3.select("#info").html("");
 
       					}
       			});
@@ -383,6 +478,8 @@ function drawGraphic() {
           function changetext(value,id) {
 
               d3.select("#info").html("<span id='label'> £" + formatValue(value) + "</span> gross, per annum");
+              occupation = $("#dropselect option:selected").text()
+              d3.select("#infohidden").html(occupation + " earn " + formatValue(value) + " pounds gross, per annum");
           }
 
 

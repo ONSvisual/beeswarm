@@ -1,31 +1,31 @@
 id,unique,value
-"Managers,  directors & senior  officials", Chief executives and senior officials,97083
-"Managers,  directors & senior  officials", Production managers and directors in manufacturing,47616
-"Managers,  directors & senior  officials", Production managers and directors in construction,43879
-"Managers,  directors & senior  officials", Production managers and directors in mining and energy,45033
-"Managers,  directors & senior  officials", Financial managers and directors,67593
-"Managers,  directors & senior  officials", Marketing and sales directors,75126
-"Managers,  directors & senior  officials", Purchasing managers and directors,47438
-"Managers,  directors & senior  officials", Advertising and public relations directors,65074
-"Managers,  directors & senior  officials", Human resource managers and directors,48836
-"Managers,  directors & senior  officials", Information technology and telecommunications directors,72109
-"Managers,  directors & senior  officials", Functional managers and directors n.e.c.,57098
-"Managers,  directors & senior  officials", Financial institution managers and directors,48140
-"Managers,  directors & senior  officials", Managers and directors in transport and distribution,38945
-"Managers,  directors & senior  officials", Managers and directors in storage and warehousing,29703
-"Managers,  directors & senior  officials", Senior police officers,59634
-"Managers,  directors & senior  officials"," Senior officers in fire, ambulance, prison and related services",45125
-"Managers,  directors & senior  officials", Health services and public health managers and directors,48760
-"Managers,  directors & senior  officials", Managers and directors in retail and wholesale,28800
-"Managers,  directors & senior  officials", Hotel and accommodation managers and proprietors,26764
-"Managers,  directors & senior  officials", Restaurant and catering establishment managers and proprietors,24468
-"Managers,  directors & senior  officials", Publicans and managers of licensed premises,24260
-"Managers,  directors & senior  officials", Leisure and sports managers,29842
-"Managers,  directors & senior  officials", Health care practice managers,32267
-"Managers,  directors & senior  officials"," Residential, day and domiciliary  care managers and proprietors",33290
-"Managers,  directors & senior  officials"," Property, housing and estate managers",35433
-"Managers,  directors & senior  officials", Shopkeepers and proprietors – wholesale and retail,27470
-"Managers,  directors & senior  officials", Managers and proprietors in other services n.e.c.,29527
+"Managers,  directors &  senior officials", Chief executives and senior officials,97083
+"Managers,  directors &  senior officials", Production managers and directors in manufacturing,47616
+"Managers,  directors &  senior officials", Production managers and directors in construction,43879
+"Managers,  directors &  senior officials", Production managers and directors in mining and energy,45033
+"Managers,  directors &  senior officials", Financial managers and directors,67593
+"Managers,  directors &  senior officials", Marketing and sales directors,75126
+"Managers,  directors &  senior officials", Purchasing managers and directors,47438
+"Managers,  directors &  senior officials", Advertising and public relations directors,65074
+"Managers,  directors &  senior officials", Human resource managers and directors,48836
+"Managers,  directors &  senior officials", Information technology and telecommunications directors,72109
+"Managers,  directors &  senior officials", Functional managers and directors n.e.c.,57098
+"Managers,  directors &  senior officials", Financial institution managers and directors,48140
+"Managers,  directors &  senior officials", Managers and directors in transport and distribution,38945
+"Managers,  directors &  senior officials", Managers and directors in storage and warehousing,29703
+"Managers,  directors &  senior officials", Senior police officers,59634
+"Managers,  directors &  senior officials"," Senior officers in fire, ambulance, prison and related services",45125
+"Managers,  directors &  senior officials", Health services and public health managers and directors,48760
+"Managers,  directors &  senior officials", Managers and directors in retail and wholesale,28800
+"Managers,  directors &  senior officials", Hotel and accommodation managers and proprietors,26764
+"Managers,  directors &  senior officials", Restaurant and catering establishment managers and proprietors,24468
+"Managers,  directors &  senior officials", Publicans and managers of licensed premises,24260
+"Managers,  directors &  senior officials", Leisure and sports managers,29842
+"Managers,  directors &  senior officials", Health care practice managers,32267
+"Managers,  directors &  senior officials"," Residential, day and domiciliary  care managers and proprietors",33290
+"Managers,  directors &  senior officials"," Property, housing and estate managers",35433
+"Managers,  directors &  senior officials", Shopkeepers and proprietors – wholesale and retail,27470
+"Managers,  directors &  senior officials", Managers and proprietors in other services n.e.c.,29527
 Professional, Chemical scientists,33767
 Professional, Biological scientists and biochemists,37392
 Professional, Physical scientists,40131
@@ -223,30 +223,30 @@ Sales &  customer service, Telephonists,20374
 Sales &  customer service, Communication operators,27231
 Sales &  customer service, Customer service occupations n.e.c.,20735
 Sales &  customer service, Customer service managers and supervisors,29131
-"Process, plant &  machine operatives"," Food, drink and tobacco process operatives",20041
-"Process, plant &  machine operatives", Glass and ceramics process operatives,21678
-"Process, plant &  machine operatives", Textile process operatives,24062
-"Process, plant &  machine operatives", Chemical and related process operatives,29564
-"Process, plant &  machine operatives", Plastics process operatives,21134
-"Process, plant &  machine operatives", Process operatives n.e.c.,21518
-"Process, plant &  machine operatives", Paper and wood machine operatives,21846
-"Process, plant &  machine operatives", Energy plant operatives,29516
-"Process, plant &  machine operatives", Metal working machine operatives,23106
-"Process, plant &  machine operatives", Water and sewerage plant operatives,29708
-"Process, plant &  machine operatives", Printing machine assistants,22090
-"Process, plant &  machine operatives", Assemblers (electrical and electronic products),22634
-"Process, plant &  machine operatives", Assemblers (vehicles and metal goods),34208
-"Process, plant &  machine operatives", Routine inspectors and testers,25566
-"Process, plant &  machine operatives"," Weighers, graders and sorters",24127
-"Process, plant &  machine operatives", Sewing machinists,17347
-"Process, plant &  machine operatives", Assemblers and routine operatives n.e.c.,21159
-"Process, plant &  machine operatives", Construction operatives n.e.c.,24882
-"Process, plant &  machine operatives", Large goods vehicle drivers,29738
-"Process, plant &  machine operatives", Van drivers,22250
-"Process, plant &  machine operatives", Bus and coach drivers,26349
-"Process, plant &  machine operatives", Fork-lift truck drivers,22189
-"Process, plant &  machine operatives", Mobile machine drivers and operatives n.e.c.,28714
-"Process, plant &  machine operatives", Train and tram drivers,53403
+"Process, plant  & machine  operatives"," Food, drink and tobacco process operatives",20041
+"Process, plant  & machine  operatives", Glass and ceramics process operatives,21678
+"Process, plant  & machine  operatives", Textile process operatives,24062
+"Process, plant  & machine  operatives", Chemical and related process operatives,29564
+"Process, plant  & machine  operatives", Plastics process operatives,21134
+"Process, plant  & machine  operatives", Process operatives n.e.c.,21518
+"Process, plant  & machine  operatives", Paper and wood machine operatives,21846
+"Process, plant  & machine  operatives", Energy plant operatives,29516
+"Process, plant  & machine  operatives", Metal working machine operatives,23106
+"Process, plant  & machine  operatives", Water and sewerage plant operatives,29708
+"Process, plant  & machine  operatives", Printing machine assistants,22090
+"Process, plant  & machine  operatives", Assemblers (electrical and electronic products),22634
+"Process, plant  & machine  operatives", Assemblers (vehicles and metal goods),34208
+"Process, plant  & machine  operatives", Routine inspectors and testers,25566
+"Process, plant  & machine  operatives"," Weighers, graders and sorters",24127
+"Process, plant  & machine  operatives", Sewing machinists,17347
+"Process, plant  & machine  operatives", Assemblers and routine operatives n.e.c.,21159
+"Process, plant  & machine  operatives", Construction operatives n.e.c.,24882
+"Process, plant  & machine  operatives", Large goods vehicle drivers,29738
+"Process, plant  & machine  operatives", Van drivers,22250
+"Process, plant  & machine  operatives", Bus and coach drivers,26349
+"Process, plant  & machine  operatives", Fork-lift truck drivers,22189
+"Process, plant  & machine  operatives", Mobile machine drivers and operatives n.e.c.,28714
+"Process, plant  & machine  operatives", Train and tram drivers,53403
 Elementary, Farm workers,21775
 Elementary, Elementary construction occupations,21996
 Elementary, Industrial cleaning process occupations,19569
