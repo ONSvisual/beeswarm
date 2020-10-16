@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,bold" rel="stylesheet">
-  <link href="../lib/chosen.css" rel="stylesheet" />
+  <link href="./css/style-chosen.css" rel="stylesheet" />
 
 <style>
 
@@ -143,6 +143,12 @@ body {
     text-rendering: optimizeLegibility;
     transition: background-color .2s ease-in, color .2s ease-in;
 }
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0pt 3pt orange;
+}
+
 .btn--select {
     margin-left: 0px !important;
 }
@@ -493,6 +499,21 @@ function drawGraphic() {
 
                     //datafilter = datacsv.filter(function(d,i) {return "id" + i == dropcode})
       							// changetext(datafilter[0].value,datafilter[0].unique )
+
+                    d3.select('abbr').on('keypress',function(evt){
+                      if(d3.event.keyCode==13 || d3.event.keyCode==32){
+                        d3.event.preventDefault()
+
+                        clicked = false;
+
+                        d3.select(".cell" + dropcodeid).classed("cellsselected",false)
+                        d3.selectAll(".cells path").style("pointer-events","all")
+
+                        d3.select("#info").html("");
+
+                        $("#dropselect").val(null).trigger('chosen:updated');
+                      }
+                    })
 
       					}
       					else {
