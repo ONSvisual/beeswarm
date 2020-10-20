@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>Cancer survival 1-year estimates</title>
-  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,bold" rel="stylesheet">
-  <link href="../lib/chosen.css" rel="stylesheet" />
+  <link href="./css/style-chosen.css" rel="stylesheet" />
 
 <style>
 
@@ -63,7 +62,6 @@ body {
 .cellsselected {
   opacity:1;
   stroke-width: 2px;
-  r:6;
   stroke: #000;
   /* fill:orange; */
 }
@@ -105,7 +103,7 @@ body {
 	height: 15px;
 	margin-right: 6px;
 	float: left;
-	background-color:none;
+	background-color: transparent;
 	margin-top:8px;
 	border-radius:15px;
 }
@@ -145,6 +143,12 @@ body {
     text-rendering: optimizeLegibility;
     transition: background-color .2s ease-in, color .2s ease-in;
 }
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0pt 3pt orange;
+}
+
 .btn--select {
     margin-left: 0px !important;
 }
@@ -243,347 +247,366 @@ a {
     line-height: 32px;
 }
 </style>
+</head>
 
-<div id="dropdown">
-</div>
-<div id="info">
-</div>
-<div id="legend"></div>
-<div>
-	<svg width="100%"></svg>
-</div>
-<div id="source"></div>
-<h6 class="">Download this chart</h6>
-<a class="btn btn--primary" href="image.png" download>Image</a>
-<a class="btn btn--primary" title="Download as csv" href="datadownload.csv" target="_blank">.csv</a>
-<a class="btn btn--primary" title="Download as xls" href="data.xlsx" target="_blank">.xlsx</a>
+<body>
+  <div id="dropdown">
+  </div>
+  <div id="info">
+  </div>
+  <div id="legend"></div>
+  <div>
+  	<svg width="100%"></svg>
+  </div>
+  <div id="source"></div>
+  <h6 class="">Download this chart</h6>
+  <a class="btn btn--primary" href="image.png" download>Image</a>
+  <a class="btn btn--primary" title="Download as csv" href="datadownload.csv" target="_blank">.csv</a>
+  <a class="btn btn--primary" title="Download as xls" href="data.xlsx" target="_blank">.xlsx</a>
 
-<script src="https://cdn.ons.gov.uk/vendor/d3/4.13.0/d3.min.js"></script>
-<script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js"></script>
-<script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
-<script src="../lib/chosen.jquery.js"></script>
-<script src="../lib/modernizr.svg.min.js"></script>
+  <script src="https://cdn.ons.gov.uk/vendor/d3/4.13.0/d3.min.js"></script>
+  <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js"></script>
+  <script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../lib/chosen.jquery.js"></script>
+  <script src="../lib/modernizr.svg.min.js"></script>
 
-<script>
+  <script>
 
-var pymChild = null;
-function drawGraphic() {
+  var pymChild = null;
+  function drawGraphic() {
 
-  //clear the svg first
-  d3.select('svg').selectAll("*").remove()
+    //clear the svg first
+    d3.select('svg').selectAll("*").remove()
 
-  clicked = false;
+    clicked = false;
 
-	var svg = d3.select("svg"),
-		margin = {top: 23, right: 12, bottom: 20, left: 190},
+  	var svg = d3.select("svg"),
+  		margin = {top: 23, right: 12, bottom: 20, left: 190},
 
-		svgwidth =  parseInt(svg.style("width"));
-    heightper = dvc.essential.heightperstrip;
+  		svgwidth =  parseInt(svg.style("width"));
+      heightper = dvc.essential.heightperstrip;
 
-    heightper = heightper;
-		width = svgwidth - margin.left - margin.right;
+      heightper = heightper;
+  		width = svgwidth - margin.left - margin.right;
 
-    //get unique groups
-  	var groups = graphic_data.map(function(obj) { return obj.id; });
-    groups = groups.filter(function(v,i) { return groups.indexOf(v) == i; });
+      //get unique groups
+    	var groups = graphic_data.map(function(obj) { return obj.id; });
+      groups = groups.filter(function(v,i) { return groups.indexOf(v) == i; });
 
-		height = (heightper*groups.length) + margin.top + margin.bottom;
+  		height = (heightper*groups.length) + margin.top + margin.bottom;
 
-    svg.attr("height",height + "px")
+      svg.attr("height",height + "px")
 
-	var formatValue = d3.format(",.1f");
+  	var formatValue = d3.format(",.1f");
 
-	var x = d3.scaleLinear()
-		.rangeRound([0, width]);
+  	var x = d3.scaleLinear()
+  		.rangeRound([0, width]);
 
-	if(dvc.essential.xAxisScale == "auto") {
-	  x.domain(d3.extent(graphic_data, function(d) { return d.value; }));
-	} else {
-	  x.domain(dvc.essential.xAxisScale);
-	}
+  	if(dvc.essential.xAxisScale == "auto") {
+  	  x.domain(d3.extent(graphic_data, function(d) { return d.value; }));
+  	} else {
+  	  x.domain(dvc.essential.xAxisScale);
+  	}
 
-  groupeddata = {}
+    groupeddata = {}
 
-  separate = heightper;
+    separate = heightper;
 
-  runningtotal = 0;
+    runningtotal = 0;
 
-  for(var j = 0; j < groups.length; j++) {
+    for(var j = 0; j < groups.length; j++) {
 
-  groupeddata[j] =  graphic_data.filter(function(v,i) { return v.id == groups[j]; });
+    groupeddata[j] =  graphic_data.filter(function(v,i) { return v.id == groups[j]; });
 
-  if(j>0) {
-    runningtotal = runningtotal + groupeddata[j-1].length;
+    if(j>0) {
+      runningtotal = runningtotal + groupeddata[j-1].length;
+    }
+
+
+
+    	var g = svg.append("g")
+    		.attr("transform", "translate(" + margin.left + "," + (margin.top + (separate*j)) + ")");
+
+  	  var simulation = d3.forceSimulation(groupeddata[j])
+  		  .force("x", d3.forceX(function(d) { return x(d.value); }).strength(2))
+  		  .force("y", d3.forceY(heightper / 2))
+  		  .force("collide", d3.forceCollide(dvc.essential.dotradius))
+  		  .stop();
+
+  	  for (var i = 0; i < 120; ++i) simulation.tick();
+
+  	  if(svgwidth < dvc.optional.mobileBreakpoint) {
+  		  numberticks = dvc.optional.x_num_ticks_sm_md[0];
+  	  } else {
+  		  numberticks = dvc.optional.x_num_ticks_sm_md[1];
+  	  }
+
+
+      g.append("text").attr("class","label").text(groups[j]).attr("y",(heightper/2)+5).attr("x",-margin.left)
+  	  var cell = g.append("g")
+  		  .attr("class", "cells")
+  		.selectAll("g").data(d3.voronoi()
+  			.extent([[-margin.left, 0], [width + margin.right, heightper]])
+  			.x(function(d) { return d.x; })
+  			.y(function(d) { return d.y; })
+  		  .polygons(groupeddata[j])).enter().append("g").attr("class", function(d,i){ return i})
+
+  	  cell.append("circle")
+  		  .attr("r", dvc.essential.dotradius)
+  		  .attr("cx", function(d) {return d.data.x; })
+  		  .attr("cy", function(d) { return d.data.y; })
+  		  .attr("class", function(d,i) { return "cell cell" + (runningtotal + i) + " cellgroup"+d.data.group.replace(/[, ]+/g, "").trim()+" cellkey"+d.data.sex})
+  		  .attr("fill",function(d){if (d.data.sex=="Male"){
+                  return dvc.essential.colour_palette[0]
+                }else{
+                  return dvc.essential.colour_palette[1]
+                }
+              });
+
+  	  cell.append("path")
+  		  .attr("d", function(d) { return "M" + d.join("L") + "Z"; })
+        .attr("class", function(d,i) { return "path" + (runningtotal + i)+ " "+d.data.group.replace(/[, ]+/g, "").trim()})
+        .on("mouseover", function(d,i) {
+          pathidstr = d3.select(this).attr("class");
+          pathgroup = pathidstr.split(" ")[1];
+          pathid=pathidstr.split(" ")[0].substr(4)
+
+  			  changetext(d.data.value, d.data.group);
+  			  $("#dropselect").val(pathgroup).trigger("chosen:updated");
+          d3.selectAll(".cell").classed("notselected",true)
+  			  d3.select(".cell" + pathid).classed("cellsselected",true)
+  		  })
+  		  // .on("click", function(d) {
+        //
+  			// 	d3.selectAll(".cells path").style("pointer-events","none");
+  			// 	clicked = true;
+        //
+        //
+  		  // })
+  		  .on("mouseout", function(d,i) {
+          pathidstr = d3.select(this).attr("class");
+          pathid = +pathidstr.substr(4);
+
+  			  d3.select("#info").html("");
+          $("#dropselect").val("").trigger("chosen:updated");
+  			  d3.selectAll(".cell").classed("cellsselected",false)
+          d3.selectAll(".cell").classed("notselected",false)
+
+  			  if(clicked == true) {
+  				 changetext(d.data.value, d.data.unique)
+
+            $("#dropselect").val("id" + pathid).trigger("chosen:updated");
+  				  d3.select(".cell" + pathid).classed("cellsselected",true)
+
+  			  }
+  		  })
+
+
+        if(j==0) {
+            g.append("g")
+              .attr("class", "axis axis--x")
+              .attr("transform", "translate(0,0)")
+              .call(d3.axisTop(x).ticks(numberticks, ".0s").tickSize(0));
+          }
+
+          if(j==groups.length-1){
+            g.append("g")
+          	  .attr("class", "axis axis--x")
+          	  .attr("transform", "translate(0," + (-heightper*(groups.length-1)) + ")")
+          	  .call(d3.axisBottom(x)
+                      .ticks(numberticks, ".0s")
+                      .tickSize(height-heightper)
+
+              );
+          svg.attr("height",parseInt(svg.attr("height"))+8+"px")
+          g.selectAll(".axis--x line").style("stroke", "#ddd").attr("stroke-dasharray", "2,2");
+          }
+        }
+
+        annotationCreation();
+
+        function annotationCreation(){
+            //create line breaks for annotation
+            var insertLinebreaks = function () {
+
+            var el1 = this.firstChild;
+            var el = el1.data;
+
+            var words = el.split('  ');
+
+
+            d3.select(this).text('');
+
+            xpos = d3.select(this).attr("x");
+
+
+              for (var i = 0; i < words.length; i++) {
+                var tspan = d3.select(this).append('tspan').text(words[i]);
+                if (i > 0) {
+                  tspan.attr('x', xpos).attr('dy', '13');
+                  }
+              }
+
+              if(words.length > 1) {
+                  d3.select(this).attr("transform","translate(0,"+ ((words.length-1) * (-13/2)) + ")")
+              }
+
+            };
+
+              d3.selectAll(".label").each(insertLinebreaks);
+
+        }//end of annotationCreation
+
+        selectlist(graphic_data);
+
+        function selectlist(datacsv) {
+
+        			var dropnames = datacsv.map(function(d,i){return d.group}).filter(function(item,pos,val){return val.indexOf(item)==pos})
+        			var dropcodes =  dropnames.map(function(d,i) { return "id" + i; });
+        			var menuarea = d3.zip(dropnames,dropcodes).sort(function(a, b){ return d3.ascending(a[0], b[0]); });
+
+              //clear dropdown
+              d3.select("#dropdown").selectAll("*").remove()
+
+        			// Build option menu for occupations
+        			var optns = d3.select("#dropdown").append("div").attr("id","sel").append("select")
+        				.attr("id","dropselect")
+        				.attr("style","width:300px")
+        				.attr("class","chosen-select");
+
+        			optns.append("option")
+        				// .attr("value","first")
+        				// .text("");
+        			optns.selectAll("p").data(menuarea).enter().append("option")
+        				.attr("value", function(d){return d[0].replace(/[, ]+/g, "").trim()})
+        				.attr("id",function(d){return d[1]})
+        				.text(function(d){ return d[0]});
+
+        			myId=null;
+
+        			$('#dropselect').chosen({width: "98%", allow_single_deselect:true,placeholder_text_single:"Choose a cancer alliance region"}).on('change',function(evt,params){
+
+        					if($('#dropselect').val() != "") {
+        					//if(typeof params != 'undefined') {
+                      clicked = true;
+        							d3.selectAll(".cell").classed("cellsselected", false);
+        							d3.selectAll(".cells path").style("pointer-events","none")
+
+        							dropcode = $('#dropselect').val();
+                      console.log(dropcode)
+                      dropcodeid = +dropcode.substr(2)
+
+                      d3.selectAll(".cell").classed("notselected",true)
+        							d3.selectAll(".cellgroup" + dropcode.replace(/[, ]+/g, "").trim()).classed("cellsselected", true);
+
+                      //datafilter = datacsv.filter(function(d,i) {return "id" + i == dropcode})
+        							// changetext(datafilter[0].value,datafilter[0].unique )
+
+                      d3.select('abbr').on('keypress',function(evt){
+                        if(d3.event.keyCode==13 || d3.event.keyCode==32){
+                          d3.event.preventDefault()
+
+                          clicked = false;
+
+                          d3.select(".cell" + dropcodeid).classed("cellsselected",false)
+                          d3.selectAll(".cells path").style("pointer-events","all")
+
+                          d3.select("#info").html("");
+
+                          $("#dropselect").val(null).trigger('chosen:updated');
+                        }
+                      })
+
+        					}
+        					else {
+
+        						clicked = false;
+
+                    d3.selectAll(".cell").classed("notselected",false)
+        						d3.selectAll(".cell").classed("cellsselected", false);
+        						d3.selectAll(".cells path").style("pointer-events","all");
+
+        					}
+        			});
+            } //end selectlist
+
+      function changetext(value,id) {
+          d3.select("#info").html("<span id='label'>1-year survival estimate: " + formatValue(value) + "%</span>");
+      }
+
+      var legend = d3.select('#legend')
+  			.append('ul')
+  			.attr('class', 'key')
+  			.selectAll('g')
+  			.data(["Male","Female"])
+  			.enter()
+  			.append('li')
+  			//.style("background-color", function(d , i) { return dvc.essential.colour_palette[i]; })
+  			.attr('class', function(d, i) { return 'key-item key-' + i + ' b '+ d.replace(' ', '-').toLowerCase(); })
+  			.on("mouseover",function(d, i){
+  				d3.selectAll(".key-item").style("opacity",0.2);
+  				d3.selectAll(".key-" + i).style("opacity",1);
+  				d3.selectAll(".cell").style("opacity",0.2);
+  				d3.selectAll(".cellkey" + d).style("opacity",1);
+  			})
+  			.on("mouseout",function(d, i){
+  				d3.selectAll(".key-item").style("opacity",1);
+  				d3.selectAll(".cell").style("opacity",1);
+  			})
+  		legend.append('b').attr("class", "legendBlocks")
+  			.style("background-color", function(d , i) { return dvc.essential.colour_palette[i]; });
+  		legend.append('label').text(function(d,i) {
+  			var value = parseFloat(d).toFixed(1);
+  			return d;
+  		});
+
+
+  	//add xaxislabel
+  	  svg.append("g")
+  	  .attr("transform", "translate(" + (svgwidth - margin.right) +"," + (height+4) + ")")
+  		.append("text")
+  		.attr("id","xaxislabel")
+  		.attr("text-anchor", "end")
+  		.text(dvc.essential.xAxisLabel);
+
+  	//add source
+  	  d3.select("#source").text("Source: " + dvc.essential.sourceText);
+
+  	if (pymChild) {
+  		pymChild.sendHeight();
+  	}
+
   }
 
 
+  if (Modernizr.svg) {
+  	//load config
+  	d3.json("config.json", function(error, config) {
+  	dvc=config
+  		//load chart data
+  		d3.csv(dvc.essential.graphic_data_url, function(error, data) {
+  			graphic_data = data;
 
-  	var g = svg.append("g")
-  		.attr("transform", "translate(" + margin.left + "," + (margin.top + (separate*j)) + ")");
+          pymChild = new pym.Child({ renderCallback: drawGraphic});
+  			//use pym to create iframed chart dependent on specified variables
 
-	  var simulation = d3.forceSimulation(groupeddata[j])
-		  .force("x", d3.forceX(function(d) { return x(d.value); }).strength(2))
-		  .force("y", d3.forceY(heightper / 2))
-		  .force("collide", d3.forceCollide(dvc.essential.dotradius))
-		  .stop();
-
-	  for (var i = 0; i < 120; ++i) simulation.tick();
-
-	  if(svgwidth < dvc.optional.mobileBreakpoint) {
-		  numberticks = dvc.optional.x_num_ticks_sm_md[0];
-	  } else {
-		  numberticks = dvc.optional.x_num_ticks_sm_md[1];
-	  }
-
-
-    g.append("text").attr("class","label").text(groups[j]).attr("y",(heightper/2)+5).attr("x",-margin.left)
-	  var cell = g.append("g")
-		  .attr("class", "cells")
-		.selectAll("g").data(d3.voronoi()
-			.extent([[-margin.left, 0], [width + margin.right, heightper]])
-			.x(function(d) { return d.x; })
-			.y(function(d) { return d.y; })
-		  .polygons(groupeddata[j])).enter().append("g").attr("class", function(d,i){ return i})
-
-	  cell.append("circle")
-		  .attr("r", dvc.essential.dotradius)
-		  .attr("cx", function(d) {return d.data.x; })
-		  .attr("cy", function(d) { return d.data.y; })
-		  .attr("class", function(d,i) { return "cell cell" + (runningtotal + i) + " cellgroup"+d.data.group.replace(/[, ]+/g, "").trim()+" cellkey"+d.data.sex})
-		  .attr("fill",function(d){if (d.data.sex=="Male"){
-                return dvc.essential.colour_palette[0]
-              }else{
-                return dvc.essential.colour_palette[1]
-              }
-            });
-
-	  cell.append("path")
-		  .attr("d", function(d) { return "M" + d.join("L") + "Z"; })
-      .attr("class", function(d,i) { return "path" + (runningtotal + i)+ " "+d.data.group.replace(/[, ]+/g, "").trim()})
-      .on("mouseover", function(d,i) {
-        pathidstr = d3.select(this).attr("class");
-        pathgroup = pathidstr.split(" ")[1];
-        pathid=pathidstr.split(" ")[0].substr(4)
-
-			  changetext(d.data.value, d.data.group);
-			  $("#dropselect").val(pathgroup).trigger("chosen:updated");
-        d3.selectAll(".cell").classed("notselected",true)
-			  d3.select(".cell" + pathid).classed("cellsselected",true)
-		  })
-		  // .on("click", function(d) {
-      //
-			// 	d3.selectAll(".cells path").style("pointer-events","none");
-			// 	clicked = true;
-      //
-      //
-		  // })
-		  .on("mouseout", function(d,i) {
-        pathidstr = d3.select(this).attr("class");
-        pathid = +pathidstr.substr(4);
-
-			  d3.select("#info").html("");
-        $("#dropselect").val("").trigger("chosen:updated");
-			  d3.selectAll(".cell").classed("cellsselected",false)
-        d3.selectAll(".cell").classed("notselected",false)
-
-			  if(clicked == true) {
-				 changetext(d.data.value, d.data.unique)
-
-          $("#dropselect").val("id" + pathid).trigger("chosen:updated");
-				  d3.select(".cell" + pathid).classed("cellsselected",true)
-
-			  }
-		  })
+  		});
+  	})
+  } else {
+  	 //use pym to create iframe containing fallback image (which is set as default)
+  	pymChild = new pym.Child();
+  	if (pymChild) {
+  		pymChild.sendHeight();
+  	}
+  }
 
 
-      if(j==0) {
-          g.append("g")
-            .attr("class", "axis axis--x")
-            .attr("transform", "translate(0,0)")
-            .call(d3.axisTop(x).ticks(numberticks, ".0s").tickSize(0));
-        }
+  function type(d) {
+    if (!d.value) return;
+    d.value = +d.value;
+    return d;
+  }
 
-        if(j==groups.length-1){
-          g.append("g")
-        	  .attr("class", "axis axis--x")
-        	  .attr("transform", "translate(0," + (-heightper*(groups.length-1)) + ")")
-        	  .call(d3.axisBottom(x)
-                    .ticks(numberticks, ".0s")
-                    .tickSize(height-heightper)
-
-            );
-        svg.attr("height",parseInt(svg.attr("height"))+8+"px")
-        g.selectAll(".axis--x line").style("stroke", "#ddd").attr("stroke-dasharray", "2,2");
-        }
-      }
-
-      annotationCreation();
-
-      function annotationCreation(){
-          //create line breaks for annotation
-          var insertLinebreaks = function () {
-
-          var el1 = this.firstChild;
-          var el = el1.data;
-
-          var words = el.split('  ');
-
-
-          d3.select(this).text('');
-
-          xpos = d3.select(this).attr("x");
-
-
-            for (var i = 0; i < words.length; i++) {
-              var tspan = d3.select(this).append('tspan').text(words[i]);
-              if (i > 0) {
-                tspan.attr('x', xpos).attr('dy', '13');
-                }
-            }
-
-            if(words.length > 1) {
-                d3.select(this).attr("transform","translate(0,"+ ((words.length-1) * (-13/2)) + ")")
-            }
-
-          };
-
-            d3.selectAll(".label").each(insertLinebreaks);
-
-      }//end of annotationCreation
-
-      selectlist(graphic_data);
-
-      function selectlist(datacsv) {
-
-      			var dropnames = datacsv.map(function(d,i){return d.group}).filter(function(item,pos,val){return val.indexOf(item)==pos})
-      			var dropcodes =  dropnames.map(function(d,i) { return "id" + i; });
-      			var menuarea = d3.zip(dropnames,dropcodes).sort(function(a, b){ return d3.ascending(a[0], b[0]); });
-
-            //clear dropdown
-            d3.select("#dropdown").selectAll("*").remove()
-
-      			// Build option menu for occupations
-      			var optns = d3.select("#dropdown").append("div").attr("id","sel").append("select")
-      				.attr("id","dropselect")
-      				.attr("style","width:300px")
-      				.attr("class","chosen-select");
-
-      			optns.append("option")
-      				// .attr("value","first")
-      				// .text("");
-      			optns.selectAll("p").data(menuarea).enter().append("option")
-      				.attr("value", function(d){return d[0].replace(/[, ]+/g, "").trim()})
-      				.attr("id",function(d){return d[1]})
-      				.text(function(d){ return d[0]});
-
-      			myId=null;
-
-      			$('#dropselect').chosen({width: "98%", allow_single_deselect:true,placeholder_text_single:"Choose a cancer alliance region"}).on('change',function(evt,params){
-
-      					if($('#dropselect').val() != "") {
-      					//if(typeof params != 'undefined') {
-                    clicked = true;
-      							d3.selectAll(".cell").classed("cellsselected", false);
-      							d3.selectAll(".cells path").style("pointer-events","none")
-
-      							dropcode = $('#dropselect').val();
-                    console.log(dropcode)
-                    dropcodeid = +dropcode.substr(2)
-
-                    d3.selectAll(".cell").classed("notselected",true)
-      							d3.selectAll(".cellgroup" + dropcode.replace(/[, ]+/g, "").trim()).classed("cellsselected", true);
-
-                    //datafilter = datacsv.filter(function(d,i) {return "id" + i == dropcode})
-      							// changetext(datafilter[0].value,datafilter[0].unique )
-
-      					}
-      					else {
-
-      						clicked = false;
-
-                  d3.selectAll(".cell").classed("notselected",false)
-      						d3.selectAll(".cell").classed("cellsselected", false);
-      						d3.selectAll(".cells path").style("pointer-events","all");
-
-      					}
-      			});
-          } //end selectlist
-
-    function changetext(value,id) {
-        d3.select("#info").html("<span id='label'>1-year survival estimate: " + formatValue(value) + "%</span>");
-    }
-
-    var legend = d3.select('#legend')
-			.append('ul')
-			.attr('class', 'key')
-			.selectAll('g')
-			.data(["Male","Female"])
-			.enter()
-			.append('li')
-			//.style("background-color", function(d , i) { return dvc.essential.colour_palette[i]; })
-			.attr('class', function(d, i) { return 'key-item key-' + i + ' b '+ d.replace(' ', '-').toLowerCase(); })
-			.on("mouseover",function(d, i){
-				d3.selectAll(".key-item").style("opacity",0.2);
-				d3.selectAll(".key-" + i).style("opacity",1);
-				d3.selectAll(".cell").style("opacity",0.2);
-				d3.selectAll(".cellkey" + d).style("opacity",1);
-			})
-			.on("mouseout",function(d, i){
-				d3.selectAll(".key-item").style("opacity",1);
-				d3.selectAll(".cell").style("opacity",1);
-			})
-		legend.append('b').attr("class", "legendBlocks")
-			.style("background-color", function(d , i) { return dvc.essential.colour_palette[i]; });
-		legend.append('label').text(function(d,i) {
-			var value = parseFloat(d).toFixed(1);
-			return d;
-		});
-
-
-	//add xaxislabel
-	  svg.append("g")
-	  .attr("transform", "translate(" + (svgwidth - margin.right) +"," + (height+4) + ")")
-		.append("text")
-		.attr("id","xaxislabel")
-		.attr("text-anchor", "end")
-		.text(dvc.essential.xAxisLabel);
-
-	//add source
-	  d3.select("#source").text("Source: " + dvc.essential.sourceText);
-
-	if (pymChild) {
-		pymChild.sendHeight();
-	}
-
-}
-
-
-if (Modernizr.svg) {
-	//load config
-	d3.json("config.json", function(error, config) {
-	dvc=config
-		//load chart data
-		d3.csv(dvc.essential.graphic_data_url, function(error, data) {
-			graphic_data = data;
-
-        pymChild = new pym.Child({ renderCallback: drawGraphic});
-			//use pym to create iframed chart dependent on specified variables
-
-		});
-	})
-} else {
-	 //use pym to create iframe containing fallback image (which is set as default)
-	pymChild = new pym.Child();
-	if (pymChild) {
-		pymChild.sendHeight();
-	}
-}
-
-
-function type(d) {
-  if (!d.value) return;
-  d.value = +d.value;
-  return d;
-}
-
-</script>
+  </script>
+</body>
+</html>
