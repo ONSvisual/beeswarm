@@ -1,0 +1,15 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+            "colour_palette": ["#206095","#339a59"],
+            "sourceText":["Office for National Statistics"],
+            "xAxisLabel": ["years","people per sq km","%","%","average IMD score of neighbourhoods (LSOAs)"],
+            "xAxisScale": "auto",
+            "heightperstrip":120,
+            "dotradius":2.5
+    },
+    "optional" : {
+            "mobileBreakpoint" : 610,
+            "x_num_ticks_sm_md" : [6,8]
+    }
+}
