@@ -13,8 +13,8 @@
         "label":"Age",
         "dropdown": true,
         "unit": {
-          "Median Age of All Usual Residents, 2019, England":"years",
-          "Population density per square kilometres, mid-2019, England":"people per square km"
+          "Median age":"years",
+          "Population density":"people per square km"
           },
         "average":0
       },

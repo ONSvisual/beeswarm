@@ -30,224 +30,60 @@
     }
 
     .item {
-      display:flex
+      display: flex
     }
 
-    div.item svg {
+    div.info {
+      min-width: 300px;
+      position:relative;
+    }
+
+    div.swarm {
       align-self: flex-end;
       margin-left: auto;
     }
 
-    select {
-      max-width: 300px;
+    p.unitText {
+      margin: 0;
+      text-align: right;
     }
 
-    /* #info {
-      height: 25px;
-      width: 100%;
-      font-size: 16px;
-      margin: 16px 0px;
+    div.infoDiv {
+      margin-top: 10px;
     }
-
-    #label {
-      font-weight: bold;
-    } */
-
-    /* .axis path,
-    .axis line {
-      fill: none;
-      stroke: rgb(102, 102, 102);
-      shape-rendering: crispEdges;
-    }*/
 
     .domain {
       display: none;
     }
 
-    /* .axis text,
+    div.category{
+      font-weight:700;
+    }
+
+    .axis text,
     #xaxislabel {
       font-family: 'Open Sans', sans-serif;
       fill: rgb(102, 102, 102);
       font-size: 16px;
-    } */
+    }
 
     .cells path {
       fill: none;
       pointer-events: all;
     }
 
-    .notselected {
-      opacity: 0.6;
-    }
-
     .cellsselected {
       opacity: 1;
       stroke-width: 2px;
-      stroke: #000;
+      stroke: black;
       fill: orange;
+      r: 5px;
     }
 
     #source {
       font-size: 16px;
       font-weight: 700;
       color: #323132;
-    }
-
-    .key
-
-    /* required */
-      {
-      display: inline-block;
-      margin: 0 0 1em 0;
-      padding: 0;
-      line-height: 15px;
-    }
-
-    .label {
-      white-space: nowrap;
-      font-size: 16px;
-      color: #333;
-      font-weight: normal;
-      font-family: "Open Sans", Helvetica, sans-serif;
-    }
-
-    .key li
-
-    /* required */
-      {
-      display: inline-block;
-      margin: 0 18px 0 0;
-      padding: 0;
-      line-height: 15px;
-    }
-
-    .key b
-
-    /* required */
-      {
-      display: inline-block;
-      width: 35px;
-      height: 15px;
-      margin-right: 6px;
-      float: left;
-      background-color: transparent;
-      margin-top: 8px;
-      border-radius: 15px;
-    }
-
-    .legendBlocks {
-      /* new for Cluster chart */
-      width: 15px !important;
-      margin-top: 0px !important;
-    }
-
-    .key label
-
-    /* required */
-      {
-      white-space: nowrap;
-      font-size: 16px;
-      color: #333;
-      font-weight: normal;
-    }
-
-    .btn-group {
-      padding: 10px;
-    }
-
-    .btn-group,
-    .btn-group-vertical {
-      position: relative;
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    .btn {
-      position: relative;
-      padding: 10px 15px;
-      margin: 0 0 20px;
-      line-height: normal;
-      color: #fff;
-      /* font-size: 1.3em !important; */
-      border-radius: 0px;
-      display: inline-block;
-      text-rendering: optimizeLegibility;
-      transition: background-color .2s ease-in, color .2s ease-in;
-    }
-
-    .btn:focus {
-      outline: none;
-      box-shadow: 0 0 0pt 3pt orange;
-    }
-
-    .btn--select {
-      margin-left: 0px !important;
-    }
-
-    .btn--select {
-      color: #206095 !important;
-      border: 2px solid #206095 !important;
-      margin-right: 15px !important;
-      margin-bottom: 15px !important;
-      transition: all ease .2s;
-      border-radius: 30px !important;
-    }
-
-    .btn:active,
-    .btn.active {
-      background-color: #206095;
-      color: white !important;
-      -webkit-box-shadow: none;
-      box-shadow: 0 0 0pt 3pt orange;
-    }
-
-    .btn-group>.btn:focus {
-      outline: none;
-      box-shadow: 0 0 0pt 3pt orange;
-    }
-
-    [data-toggle=buttons]>.btn input[type=radio],
-    [data-toggle=buttons]>.btn-group>.btn input[type=radio] {
-      position: absolute;
-      clip: rect(0, 0, 0, 0);
-      pointer-events: none;
-    }
-
-    input[type=checkbox],
-    input[type=radio] {
-      -webkit-appearance: none;
-    }
-
-    .btn-group input {
-      height: 0px;
-      width: 0px;
-      position: absolute;
-      left: -100px;
-    }
-
-    input[type=checkbox],
-    input[type=radio] {
-      margin: 4px 0 0;
-      margin-top: 1px\9;
-      line-height: normal;
-    }
-
-    input[type=checkbox],
-    input[type=radio] {
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      padding: 0;
-    }
-
-    input {
-      border: none;
-      border-radius: 0;
-      border-bottom: solid 1px #ddd;
-      font-size: 18px;
-      line-height: 32px;
-      margin: 16px 0;
-      padding: 6px 0 0 0;
     }
 
     input,
@@ -264,30 +100,6 @@
       color: #323132;
     }
 
-    .btn--primary {
-      background-color: #0F8243;
-      color: #fff;
-    }
-
-    .btn {
-      font-family: "Open Sans", Helvetica, Arial, sans-serif;
-      font-weight: 400;
-      font-size: 14px;
-      display: inline-block;
-      width: auto;
-      cursor: pointer;
-      padding: 6px 16px 10px 16px;
-      border: 0 none;
-      text-align: center;
-      -webkit-appearance: none;
-      transition: background-color 0.25s ease-out;
-      line-height: 24px;
-    }
-
-    .btn--primary:hover,
-    .btn--primary:focus {
-      background-color: #0b5d30;
-    }
 
     a {
       text-decoration: underline;
@@ -296,48 +108,82 @@
       line-height: 32px;
     }
 
-
-
-
-    p {
-      flex: 1 1 auto;
-      position: relative;
-      vertical-align: middle;
+    select {
+      font-size: 1.1em;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+      background: transparent;
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+      outline: none;
+      padding-right: 35px;
+      padding-left: 15px;
+      border: 2px solid #206095;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      color: #206095;
     }
 
-    .hoverval {
-      font-size: 13px;
+
+    div.dropdown {
+      position: relative;
+      height: 45px;
+      background: white;
+      border: none;
+      max-width: 18em;
+      min-width: 13em;
+      margin-top:5px;
+    }
+
+    .dropdown::before {
+
+      height: 43px;
+      width: 46px;
+      position: absolute;
+      top: 1px;
+      right: 1px;
+      bottom: 1px;
+      background: #206095;
+      content: '';
+      pointer-events: none;
+
+    }
+
+    .dropdown::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 0;
+      height: 0;
+      right: 17px;
+      bottom: 0;
+      margin: 18px 0 0 0;
+      border-style: solid;
+      border-width: 10px 9px 0 9px;
+      border-color: #ffffff transparent transparent transparent;
+      pointer-events: none;
+    }
+
+    select:focus {
+      outline: 3px solid #FFA23A;
+    }
+
+    .visuallyhidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
     }
   </style>
 </head>
 
 <body>
-
-  <!-- <div id="moredropdowns">
-    <div>
-      <label for="age"></label>
-      <select id="age">
-      </select>
-    </div>
-    <div>
-      <label for="age"></label>
-      <select id="ethnicity">
-      </select>
-    </div>
-    <div>
-      <label for="age"></label>
-      <select id="industry">
-      </select>
-    </div>
-  </div> -->
-
-  <!-- <div id="info">
-  </div> -->
-  <!-- <div id="legend"></div>
-  <div>
-    <div id="labelcolumn"></div>
-  	<svg></svg>
-  </div> -->
 
   <div id="dropdown"></div>
   <div id="swarms"></div>
@@ -354,11 +200,11 @@
   <script src="../lib/modernizr.svg.min.js"></script>
 
   <script>
-  // TODO: sort out mobile view
-  // TODO: add visually hidden label for selects
-  // TODO: keyboard control for chosen
-  // TODO: select styling
-  
+    // TODO: sort out mobile view
+    // TODO: add visually hidden label for selects
+    // TODO: keyboard control for chosen
+    // TODO: select styling
+
 
     var pymChild = null;
 
@@ -395,19 +241,30 @@
 
         infoColumn.append('div').html(function(d) {
           return d.label
-        })
+        }).attr('class','category')
+
         infoColumn.each(function(d) {
           if (d.dropdown) generateDropdown(d.csv, this)
         })
-        infoColumn.append('div').attr('id', function(d) {
+
+        infoDiv=infoColumn.append('div').attr('class','infoDiv')
+
+        infoDiv.append('span')
+          .attr('id', function(d) {
             return 'value' + d.csv
           })
           .attr('class', 'value')
 
+        unitOnValue = infoDiv.append('span')
+          .attr('class', 'unit')
+
         chart_width = width - dvc.essential.infoColumnWidth - margin.left - margin.right
         height = dvc.essential.heightperstrip - margin.top - margin.bottom
 
-        svg = items.append('svg')
+        swarmColumn = items.append('div')
+          .attr('class', 'swarm')
+
+        svg = swarmColumn.append('svg')
           .attr('width', width - dvc.essential.infoColumnWidth)
           .attr('height', dvc.essential.heightperstrip)
           .append('g')
@@ -420,13 +277,17 @@
           drawBeeswarm(graphic_datas[i], graphic_datas[i].columns[2], d.csv)
         })
 
+        unitText = swarmColumn.append('p')
+          .attr('class', 'unitText')
+
         addUnits();
       }
 
 
       function generateDropdown(key, thisdiv) {
-        var select = d3.select(thisdiv).append('div').append('select').attr('id', "select" + key).attr('class', 'keyDropdown')
+        var select = d3.select(thisdiv).append('div').attr('class', 'dropdown').append('select').attr('id', "select" + key).attr('class', 'keyDropdown')
 
+        select.append('label').attr('for',function(d){return "select"+key}).html("Choose "+key).attr("class",'visuallyhidden')
 
         select.selectAll('option').data(graphic_datas[dvc.essential.graphic_data_url.indexOf(key)].columns.slice(2))
           .enter()
@@ -482,7 +343,7 @@
         thissvg.append('g')
           .attr('transform', 'translate(0,' + height + ')')
           .attr('class', 'x axis')
-          .call(d3.axisBottom(x))
+          .call(d3.axisBottom(x).ticks(5))
 
         var cell = thissvg.append("g")
           .attr("class", "cells")
@@ -529,6 +390,7 @@
 
       function mouseOff() {
         d3.selectAll('.value').html("")
+        d3.selectAll('.unit').html("")
         d3.selectAll('.dot').classed("cellsselected", false)
       }
 
@@ -537,7 +399,6 @@
       }
 
       function showHoverValue(code) {
-
         var dataForThisArea = []
         graphic_datas.forEach(function(d) {
           dataForThisArea.push(d.filter(function(e) {
@@ -557,9 +418,22 @@
           }
         });
 
+        //puts the value on the left in the info box
         csvs.forEach(function(d, i) {
           d3.select("#value" + d).html(dataLabels[i])
         });
+
+        //this put the unit on the value
+        unitOnValue.html(function(d, i) {
+          if (typeof d.unit === "object") {
+            return " " + d.unit[datakeys[i]]
+          } else {
+            return " " + d.unit
+          }
+        })
+
+        //this put the unit on the axis
+        addUnits()
       }
 
       function getkeys() {
@@ -587,17 +461,15 @@
       function addUnits() {
         getkeys()
 
-        svg.append('text')
-          .attr('x', chart_width)
-          .attr('y', height)
-          .attr('text-anchor', 'end')
-          .text(function(d, i) {
-            if (typeof d.unit === "object") {
-              return d.unit[datakeys[i]]
-            } else {
-              return d.unit
-            }
-          })
+        unitText.html(function(d, i) {
+          if (typeof d.unit === "object") {
+            return d.unit[datakeys[i]]
+          } else {
+            return d.unit
+          }
+        })
+
+
       }
 
       function createDropdown(areacd, areanm) {
