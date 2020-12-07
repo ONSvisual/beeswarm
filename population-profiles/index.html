@@ -35,7 +35,7 @@
 
     div.info {
       min-width: 300px;
-      position:relative;
+      position: relative;
     }
 
     div.swarm {
@@ -56,8 +56,8 @@
       display: none;
     }
 
-    div.category{
-      font-weight:700;
+    div.category {
+      font-weight: 700;
     }
 
     .axis text,
@@ -134,7 +134,7 @@
       border: none;
       max-width: 18em;
       min-width: 13em;
-      margin-top:5px;
+      margin-top: 5px;
     }
 
     .dropdown::before {
@@ -201,9 +201,7 @@
 
   <script>
     // TODO: sort out mobile view
-    // TODO: add visually hidden label for selects
     // TODO: keyboard control for chosen
-    // TODO: select styling
 
 
     var pymChild = null;
@@ -241,13 +239,13 @@
 
         infoColumn.append('div').html(function(d) {
           return d.label
-        }).attr('class','category')
+        }).attr('class', 'category')
 
         infoColumn.each(function(d) {
           if (d.dropdown) generateDropdown(d.csv, this)
         })
 
-        infoDiv=infoColumn.append('div').attr('class','infoDiv')
+        infoDiv = infoColumn.append('div').attr('class', 'infoDiv')
 
         infoDiv.append('span')
           .attr('id', function(d) {
@@ -287,7 +285,9 @@
       function generateDropdown(key, thisdiv) {
         var select = d3.select(thisdiv).append('div').attr('class', 'dropdown').append('select').attr('id', "select" + key).attr('class', 'keyDropdown')
 
-        select.append('label').attr('for',function(d){return "select"+key}).html("Choose "+key).attr("class",'visuallyhidden')
+        select.append('label').attr('for', function(d) {
+          return "select" + key
+        }).html("Choose " + key).attr("class", 'visuallyhidden')
 
         select.selectAll('option').data(graphic_datas[dvc.essential.graphic_data_url.indexOf(key)].columns.slice(2))
           .enter()
@@ -472,6 +472,18 @@
 
       }
 
+      function addClearBehaviour() {
+        d3.select('abbr').on('keypress', function(evt) {
+          if (d3.event.keyCode == 13 || d3.event.keyCode == 32) {
+            d3.event.preventDefault();
+            //clear behaviour
+            mouseOff();
+            enableMouseover();
+            $('#dropselect').val("").trigger('chosen:updated')
+          }
+        })
+      }
+
       function createDropdown(areacd, areanm) {
         var menuarea = d3.zip(areacd, areanm).sort(function(a, b) {
           return d3.ascending(a[1], b[1]);
@@ -506,14 +518,20 @@
         }).on('change', function(evt, params) {
           if (typeof params != 'undefined') {
             areaLocked = true;
-            disableMouseover()
-            highlightDot(params.selected)
-            showHoverValue(params.selected)
+            disableMouseover();
+            highlightDot(params.selected);
+            showHoverValue(params.selected);
+            addClearBehaviour();
           } else {
             mouseOff();
             enableMouseover();
           }
         });
+
+        //label for option
+        d3.select('input.chosen-search-input').attr('id', 'chosensearchinput')
+        d3.select('div.chosen-search').insert('label', 'input.chosen-search-input').attr('class', 'visuallyhidden').attr('for', 'chosensearchinput').html("Type to select an area")
+
       } //end createDropdown
 
       //add source
