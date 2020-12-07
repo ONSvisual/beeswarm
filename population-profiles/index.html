@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Local authority profiles</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,bold" rel="stylesheet">
+  <link href="./css/style-chosen.css" rel="stylesheet" />
+
+  <style>
+    body {
+      max-width: 700px;
+      margin: 0px auto;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    #dropdown {
+      position: relative;
+      height: 42px;
+      max-width: 700px;
+      width: 100%;
+      padding-bottom: 20px;
+    }
+
+    #swarms {
+      display: flex;
+      flex-direction: column;
+      align-content: stretch;
+    }
+
+
+
+    .item {
+      display: flex;
+      flex-direction:row;
+    }
+
+    @media (max-width:600px) {
+      .item{
+        flex-direction: column;
+      }
+    }
+
+    div.info {
+      min-width: 300px;
+      position: relative;
+      min-height: 110px;
+    }
+
+    @media (min-width:600px) {
+      div.swarm {
+        align-self: flex-end;
+        margin-left: auto;
+      }
+    }
+
+
+    p.unitText {
+      margin: 0;
+      text-align: right;
+    }
+
+    div.infoDiv {
+      margin-top: 10px;
+    }
+
+    .domain {
+      display: none;
+    }
+
+    div.category {
+      font-weight: 700;
+    }
+
+    .axis text,
+    #xaxislabel {
+      font-family: 'Open Sans', sans-serif;
+      fill: rgb(102, 102, 102);
+      font-size: 16px;
+    }
+
+    .cells path {
+      fill: none;
+      pointer-events: all;
+    }
+
+    .cellsselected {
+      opacity: 1;
+      stroke-width: 2px;
+      stroke: black;
+      fill: orange;
+      r: 5px;
+    }
+
+    #source {
+      font-size: 16px;
+      font-weight: 700;
+      color: #323132;
+    }
+
+    input,
+    select {
+      font-family: "Open Sans", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+    }
+
+
+    h6 {
+      font-size: 16px;
+      margin: 16px 0 8px 0;
+      font-weight: 700;
+      color: #323132;
+    }
+
+
+    a {
+      text-decoration: underline;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 32px;
+    }
+
+    select {
+      font-size: 1.1em;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+      background: transparent;
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+      outline: none;
+      padding-right: 35px;
+      padding-left: 15px;
+      border: 2px solid #206095;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      color: #206095;
+    }
+
+
+    div.dropdown {
+      position: relative;
+      height: 45px;
+      background: white;
+      border: none;
+      max-width: 18em;
+      min-width: 13em;
+      margin-top: 5px;
+    }
+
+    .dropdown::before {
+
+      height: 43px;
+      width: 46px;
+      position: absolute;
+      top: 1px;
+      right: 1px;
+      bottom: 1px;
+      background: #206095;
+      content: '';
+      pointer-events: none;
+
+    }
+
+    .dropdown::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 0;
+      height: 0;
+      right: 17px;
+      bottom: 0;
+      margin: 18px 0 0 0;
+      border-style: solid;
+      border-width: 10px 9px 0 9px;
+      border-color: #ffffff transparent transparent transparent;
+      pointer-events: none;
+    }
+
+    select:focus {
+      outline: 3px solid #FFA23A;
+    }
+
+    .visuallyhidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="dropdown"></div>
+  <div id="swarms"></div>
+  <div id="source"></div>
+  <!-- <h6 class="">Download this chart</h6>
+  <a class="btn btn--primary" href="image.png" download>Image</a>
+  <a class="btn btn--primary" title="Download as csv" href="datadownload.csv" target="_blank">.csv</a>
+  <a class="btn btn--primary" title="Download as xls" href="data.xlsx" target="_blank">.xlsx</a> -->
+
+  <script src="https://cdn.ons.gov.uk/vendor/d3/4.13.0/d3.min.js"></script>
+  <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js"></script>
+  <script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../lib/chosen.jquery.js"></script>
+  <script src="../lib/modernizr.svg.min.js"></script>
+
+  <script>
+    // TODO: sort out mobile view
+    // TODO: keyboard control for chosen
+
+
+    var pymChild = null;
+
+    function drawGraphic() {
+
+      areas = graphic_datas[0].map(function(d) {
+        return d.AREACD
+      });
+      names = graphic_datas[0].map(function(d) {
+        return d.AREANM
+      });
+      margin = dvc.essential.margins;
+      csvs = dvc.essential.graphic_data_url
+      datakeys = []
+
+
+      createDropdown(areas, names)
+
+      createStructure(dvc.essential.setup)
+
+      function createStructure(setup) {
+
+        items = d3.select("#swarms").selectAll("div.item")
+          .data(setup)
+          .enter()
+          .append('div')
+          .attr('class', "item")
+
+        infoColumn = items.append('div')
+          .attr('class', 'info')
+
+        infoColumn.append('div').html(function(d) {
+          return d.label
+        }).attr('class', 'category')
+
+        infoColumn.each(function(d) {
+          if (d.dropdown) generateDropdown(d.csv, this)
+        })
+
+        infoDiv = infoColumn.append('div').attr('class', 'infoDiv')
+
+        infoDiv.append('span')
+          .attr('id', function(d) {
+            return 'value' + d.csv
+          })
+          .attr('class', 'value')
+
+        unitOnValue = infoDiv.append('span')
+          .attr('class', 'unit')
+
+        swarmColumn = items.append('div')
+          .attr('class', 'swarm')
+
+
+
+        width = parseInt(d3.select('body').style('width'))
+        if(width>600){
+          chart_width = width - parseInt(d3.select('.info').style('width')) - margin.left - margin.right
+        }else{
+          chart_width = width - margin.left - margin.right//- dvc.essential.infoColumnWidth
+        }
+        height = dvc.essential.heightperstrip - margin.top - margin.bottom
+
+        svg = swarmColumn.append('svg')
+          .attr('width', chart_width + margin.left + margin.right)
+          .attr('height', dvc.essential.heightperstrip)
+          .append('g')
+          .attr('id', function(d) {
+            return "svg" + d.csv
+          })
+          .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+
+        svg.each(function(d, i) {
+          drawBeeswarm(graphic_datas[i], graphic_datas[i].columns[2], d.csv)
+        })
+
+        unitText = swarmColumn.append('p')
+          .attr('class', 'unitText')
+
+        addUnits();
+      }
+
+
+      function generateDropdown(key, thisdiv) {
+        var select = d3.select(thisdiv).append('div').attr('class', 'dropdown').append('select').attr('id', "select" + key).attr('class', 'keyDropdown')
+
+        select.append('label').attr('for', function(d) {
+          return "select" + key
+        }).html("Choose " + key).attr("class", 'visuallyhidden')
+
+        select.selectAll('option').data(graphic_datas[dvc.essential.graphic_data_url.indexOf(key)].columns.slice(2))
+          .enter()
+          .append('option')
+          .attr("value", function(d) {
+            return d
+          })
+          .attr('id', function(d, i) {
+            return i
+          })
+          .text(function(d) {
+            return d
+          })
+
+        select.on('change', function(d) {
+          drawBeeswarm(graphic_datas[csvs.indexOf(d.csv)], select.node().value, d.csv)
+          addUnits()
+
+          // if area dropdown is already selected
+          if ($("#dropselect").val() != "") {
+            disableMouseover();
+            showHoverValue($("#dropselect").val());
+          }
+        })
+      }
+
+      function drawBeeswarm(thisdata, key, selection) {
+
+        thissvg = d3.select("#svg" + selection)
+        data = thisdata.filter(function(d) {
+          return d[key] != "#N/A"
+        })
+
+        //clear svg
+        thissvg.selectAll("*").remove()
+
+        var x = d3.scaleLinear()
+          .range([0, chart_width])
+          .domain(d3.extent(data.map(function(d) {
+            return +d[key]
+          })))
+
+        var simulation = d3.forceSimulation(data)
+          .force("x", d3.forceX(function(d) {
+            return x(+d[key]);
+          }).strength(2))
+          .force("y", d3.forceY(height / 2))
+          .force("collide", d3.forceCollide(dvc.essential.dotradius))
+          .stop();
+
+        for (var i = 0; i < 120; ++i) simulation.tick();
+
+        thissvg.append('g')
+          .attr('transform', 'translate(0,' + height + ')')
+          .attr('class', 'x axis')
+          .call(d3.axisBottom(x).ticks(5))
+
+        var cell = thissvg.append("g")
+          .attr("class", "cells")
+          .selectAll("g").data(d3.voronoi()
+            .extent([
+              [-margin.left, -margin.top],
+              [chart_width + margin.right, height + margin.bottom]
+            ])
+            .x(function(d) {
+              return d.x;
+            })
+            .y(function(d) {
+              return d.y;
+            })
+            .polygons(data)).enter().append("g");
+
+        cell.append("circle")
+          .attr("r", dvc.essential.dotradius)
+          .attr("cx", function(d) {
+            return d.data.x;
+          })
+          .attr("cy", function(d) {
+            return d.data.y;
+          })
+          .attr('class', function(d) {
+            return d.data.AREACD + " dot"
+          })
+          .attr("fill", dvc.essential.colour_palette);
+
+        cell.append("path")
+          .attr('class', 'voronoiLayer')
+          .attr("d", function(d) {
+            return "M" + d.join("L") + "Z";
+          })
+          .on("mouseover", function(d) {
+            highlightDot(d.data.AREACD)
+            showHoverValue(d.data.AREACD)
+          })
+          .on("mouseout", function(d) {
+            mouseOff();
+            clearAreaDropdown();
+          });
+      }
+
+      function mouseOff() {
+        d3.selectAll('.value').html("")
+        d3.selectAll('.unit').html("")
+        d3.selectAll('.dot').classed("cellsselected", false)
+      }
+
+      function clearAreaDropdown() {
+        $("#dropselect").val("").trigger('chosen:updated');
+      }
+
+      function showHoverValue(code) {
+        var dataForThisArea = []
+        graphic_datas.forEach(function(d) {
+          dataForThisArea.push(d.filter(function(e) {
+            return e.AREACD === code
+          })[0])
+        })
+
+        // get all the keys from the selects
+        getkeys()
+
+        var dataLabels = []
+        dataForThisArea.forEach(function(item, i) {
+          if (item[datakeys[i]] === "#N/A") {
+            dataLabels.push("Data unavailable")
+          } else {
+            dataLabels.push(item[datakeys[i]])
+          }
+        });
+
+        //puts the value on the left in the info box
+        csvs.forEach(function(d, i) {
+          d3.select("#value" + d).html(dataLabels[i])
+        });
+
+        //this put the unit on the value
+        unitOnValue.html(function(d, i) {
+          if (typeof d.unit === "object") {
+            return " " + d.unit[datakeys[i]]
+          } else {
+            return " " + d.unit
+          }
+        })
+
+        //this put the unit on the axis
+        addUnits()
+      }
+
+      function getkeys() {
+        datakeys = [];
+        d3.selectAll('select.keyDropdown').each(function(d) {
+          datakeys.push(d3.select(this).node().value)
+        })
+
+        datakeys.push("Average score") //hard coded for deprivation
+      }
+
+      function highlightDot(code) {
+        d3.selectAll("." + code).classed('cellsselected', true)
+        $("#dropselect").val(code).trigger('chosen:updated');
+      }
+
+      function disableMouseover() {
+        d3.selectAll(".cells path").style("pointer-events", "none")
+      }
+
+      function enableMouseover() {
+        d3.selectAll(".cells path").style("pointer-events", "all")
+      }
+
+      function addUnits() {
+        getkeys()
+
+        unitText.html(function(d, i) {
+          if (typeof d.unit === "object") {
+            return d.unit[datakeys[i]]
+          } else {
+            return d.unit
+          }
+        })
+
+
+      }
+
+      function addClearBehaviour() {
+        d3.select('abbr').on('keypress', function(evt) {
+          if (d3.event.keyCode == 13 || d3.event.keyCode == 32) {
+            d3.event.preventDefault();
+            //clear behaviour
+            mouseOff();
+            enableMouseover();
+            $('#dropselect').val("").trigger('chosen:updated')
+          }
+        })
+      }
+
+      function createDropdown(areacd, areanm) {
+        var menuarea = d3.zip(areacd, areanm).sort(function(a, b) {
+          return d3.ascending(a[1], b[1]);
+        });
+
+        //clear dropdown
+        d3.select("#dropdown").selectAll("*").remove()
+
+        // Build option menu for dropdown
+        var optns = d3.select("#dropdown").append("div").attr("id", "sel").append("select")
+          .attr("id", "dropselect")
+          .attr("class", "chosen-select");
+
+        optns.append("option") //blank option for placeholder
+
+
+        optns.selectAll("p").data(menuarea).enter().append("option")
+          .attr("id", function(d) {
+            return d[1].replace(/[,.' ]/g, "").trim()
+          })
+          .attr("value", function(d) {
+            return d[0]
+          })
+          .text(function(d) {
+            return d[1]
+          });
+
+        $('#dropselect').chosen({
+          width: "98%",
+          allow_single_deselect: true,
+          placeholder_text_single: "Choose a Local Authority"
+        }).on('change', function(evt, params) {
+          if (typeof params != 'undefined') {
+            areaLocked = true;
+            disableMouseover();
+            highlightDot(params.selected);
+            showHoverValue(params.selected);
+            addClearBehaviour();
+          } else {
+            mouseOff();
+            enableMouseover();
+          }
+        });
+
+        //label for option
+        d3.select('input.chosen-search-input').attr('id', 'chosensearchinput')
+        d3.select('div.chosen-search').insert('label', 'input.chosen-search-input').attr('class', 'visuallyhidden').attr('for', 'chosensearchinput').html("Type to select an area")
+
+      } //end createDropdown
+
+      //add source
+      d3.select("#source").text("Source: " + dvc.essential.sourceText);
+
+      if (pymChild) {
+        pymChild.sendHeight();
+      }
+
+    }
+
+
+    if (Modernizr.svg) {
+      //load config
+      d3.json("config.json", function(error, config) {
+        dvc = config
+        //load chart data
+        q = d3.queue()
+        dvc.essential.graphic_data_url.forEach(function(d) {
+          q.defer(d3.csv, d + ".csv")
+        })
+        q.awaitAll(function(errors, datas) {
+          dvc = config
+          graphic_datas = datas
+          pymChild = new pym.Child({
+            renderCallback: drawGraphic
+          });
+        })
+
+      })
+    } else {
+      //use pym to create iframe containing fallback image (which is set as default)
+      pymChild = new pym.Child();
+      if (pymChild) {
+        pymChild.sendHeight();
+      }
+    }
+  </script>
+</body>
+
+</html>
