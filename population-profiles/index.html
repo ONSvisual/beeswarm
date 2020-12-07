@@ -29,19 +29,32 @@
       align-content: stretch;
     }
 
+
+
     .item {
-      display: flex
+      display: flex;
+      flex-direction:row;
+    }
+
+    @media (max-width:600px) {
+      .item{
+        flex-direction: column;
+      }
     }
 
     div.info {
       min-width: 300px;
       position: relative;
+      min-height: 110px;
     }
 
-    div.swarm {
-      align-self: flex-end;
-      margin-left: auto;
+    @media (min-width:600px) {
+      div.swarm {
+        align-self: flex-end;
+        margin-left: auto;
+      }
     }
+
 
     p.unitText {
       margin: 0;
@@ -216,7 +229,6 @@
       });
       margin = dvc.essential.margins;
       csvs = dvc.essential.graphic_data_url
-      width = parseInt(d3.select('body').style('width'))
       datakeys = []
 
 
@@ -231,8 +243,6 @@
           .enter()
           .append('div')
           .attr('class', "item")
-          .style("display", "flex")
-          .style("flex-direction", "row")
 
         infoColumn = items.append('div')
           .attr('class', 'info')
@@ -256,14 +266,21 @@
         unitOnValue = infoDiv.append('span')
           .attr('class', 'unit')
 
-        chart_width = width - dvc.essential.infoColumnWidth - margin.left - margin.right
-        height = dvc.essential.heightperstrip - margin.top - margin.bottom
-
         swarmColumn = items.append('div')
           .attr('class', 'swarm')
 
+
+
+        width = parseInt(d3.select('body').style('width'))
+        if(width>600){
+          chart_width = width - parseInt(d3.select('.info').style('width')) - margin.left - margin.right
+        }else{
+          chart_width = width - margin.left - margin.right//- dvc.essential.infoColumnWidth
+        }
+        height = dvc.essential.heightperstrip - margin.top - margin.bottom
+
         svg = swarmColumn.append('svg')
-          .attr('width', width - dvc.essential.infoColumnWidth)
+          .attr('width', chart_width + margin.left + margin.right)
           .attr('height', dvc.essential.heightperstrip)
           .append('g')
           .attr('id', function(d) {
