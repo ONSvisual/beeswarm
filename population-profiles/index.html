@@ -408,6 +408,10 @@
             mouseOff();
             clearAreaDropdown();
           });
+
+        if($("#dropselect").val()!=""){
+          highlightDot($("#dropselect").val())
+        }
       }
 
       function mouseOff() {
@@ -472,7 +476,7 @@
       }
 
       function highlightDot(code) {
-        d3.selectAll("." + code).classed('cellsselected', true)
+        d3.selectAll("." + code).classed('cellsselected', true).raise()
         $("#dropselect").val(code).trigger('chosen:updated');
       }
 
