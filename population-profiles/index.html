@@ -442,11 +442,15 @@
 
         //this put the unit on the value
         unitOnValue.html(function(d, i) {
-          if (typeof d.unit === "object") {
-            return " " + d.unit[datakeys[i]]
-          } else {
-            return " " + d.unit
+          if(dataLabels[i]!="Data unavailable")
+          {
+            if (typeof d.unit === "object") {
+              return " " + d.unit[datakeys[i]]
+            } else {
+              return " " + d.unit
+            }
           }
+
         })
 
         //this put the unit on the axis
