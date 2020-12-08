@@ -380,7 +380,7 @@
             .y(function(d) {
               return d.y;
             })
-            .polygons(data)).enter().append("g");
+            .polygons(data)).enter().append("g").attr('class',function(d){return 'g'+d.data.AREACD});
 
         cell.append("circle")
           .attr("r", dvc.essential.dotradius)
@@ -477,9 +477,7 @@
 
       function highlightDot(code) {
         d3.selectAll("." + code).classed('cellsselected', true)
-        d3.selectAll("." + code).each(function(){
-          d3.select(this.parentNode).raise()
-        })
+        d3.selectAll("g.g" + code).raise()
         $("#dropselect").val(code).trigger('chosen:updated');
       }
 
