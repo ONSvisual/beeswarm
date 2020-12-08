@@ -477,7 +477,9 @@
 
       function highlightDot(code) {
         d3.selectAll("." + code).classed('cellsselected', true)
-        d3.selectAll("." + code).parentNode.raise()
+        d3.selectAll("." + code).each(function(){
+          d3.select(this.parentNode).raise()
+        })
         $("#dropselect").val(code).trigger('chosen:updated');
       }
 
