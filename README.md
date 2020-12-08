@@ -6,7 +6,7 @@
 - [Multiple beeswarms](https://onsvisual.github.io/beeswarm/multiple-beeswarms/index.html)
 - [Accurate plain beeswarm](https://onsvisual.github.io/beeswarm/accurate-plain-beeswarm/)
 - [Multiple beeswarm alternative](https://onsvisual.github.io/beeswarm/multiple-beeswarms-alternative/index.html)
-
+- [Population profiles](https://onsvisual.github.io/beeswarm/population-profiles/index.html)
 
 
 Templated version of beeswarm plots
