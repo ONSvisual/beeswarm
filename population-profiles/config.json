@@ -1,57 +1,73 @@
 {
   "essential": {
-    "graphic_data_url": ["age", "employment", "ethnicity", "industry", "population","deprivation"],
+    "graphic_data_url": ["age", "employment", "ethnicity", "industry", "population", "deprivation"],
     "colour_palette": "#206095",
     "sourceText": ["Office for National Statistics"],
     "xAxisScale": "auto",
     "heightperstrip": 150,
     "dotradius": 2.5,
-    "margins":{"top":15,"right":30,"bottom":20,"left":30},
-    "infoColumnWidth":300,
+    "margins": {
+      "top": 15,
+      "right": 20,
+      "bottom": 22,
+      "left": 20
+    },
+    "infoColumnWidth": 300,
     "setup": [{
         "csv": "age",
-        "label":"Age",
+        "label": "Age",
         "dropdown": true,
         "unit": {
-          "Median age":"years",
-          "Population density":"people per square km"
+          "Median age": {
+            "unit": "years",
+            "time": 2020
           },
-        "average":0
+          "Population density": {
+            "unit": "people per square km",
+            "time": 2020
+          }
+        },
+        "average": 0
       },
       {
         "csv": "employment",
-        "label":"Employment",
+        "label": "Employment",
         "dropdown": true,
-        "unit": "%"
+        "unit": "%",
+        "time": 2020
       },
       {
         "csv": "ethnicity",
-        "label":"Ethnicity",
+        "label": "Ethnicity",
         "dropdown": true,
-        "unit": "%"
+        "unit": "%",
+        "time": 2011
       },
       {
         "csv": "industry",
-        "label":"Industry",
+        "label": "Industry",
         "dropdown": true,
-        "unit": "%"
+        "unit": "%",
+        "time": 2020
       },
       {
         "csv": "population",
-        "label":"Population",
+        "label": "Population",
         "dropdown": true,
-        "unit": "%"
+        "unit": "%",
+        "time": 2020
       },
       {
-        "csv":"deprivation",
-        "label":"Deprivation",
-        "dropdown":false,
-        "unit":"Average score"
+        "csv": "deprivation",
+        "label": "Deprivation",
+        "dropdown": false,
+        "unit": "Average score",
+        "time": 2019
       }
     ]
   },
   "optional": {
-    "mobileBreakpoint": 610,
+    "mobileBreakpoint": 600,
     "x_num_ticks_sm_md": [6, 8]
   }
 }

@@ -1,4 +1,4 @@
-﻿AREACD,AREANM,"Unemployed",Employees,Self-employed
+﻿AREACD,AREANM,Unemployed,Employees,Self-employed
 E06000047,County Durham,5.1,86.2,13.8
 E06000005,Darlington,6.1,90,9.7
 E06000001,Hartlepool,7.2,90.2,9.8
@@ -313,3 +313,4 @@ E07000187,Mendip,3.1,82.8,16.6
 E07000188,Sedgemoor,3.3,87.3,12.2
 E07000246,Somerset West and Taunton,3.3,82.8,17.2
 E07000189,South Somerset,2.8,87.2,12.8
+A,Average,3.649679487,85.08402556,14.71322581

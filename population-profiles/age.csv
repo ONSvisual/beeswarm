@@ -1,4 +1,4 @@
-﻿AREACD,AREANM,"Median age","Population density"
+﻿AREACD,AREANM,Median age,Population density
 E06000047,County Durham,43.4,238
 E06000005,Darlington,43.2,541
 E06000001,Hartlepool,41.7,999
@@ -313,3 +313,4 @@ E07000187,Mendip,47,156
 E07000188,Sedgemoor,46.9,218
 E07000246,Somerset West and Taunton,47.9,131
 E07000189,South Somerset,47.7,176
+A,Average,42.21242038,1811.200637

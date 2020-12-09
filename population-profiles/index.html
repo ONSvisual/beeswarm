@@ -33,14 +33,14 @@
 
     .item {
       display: flex;
-      flex-direction:row;
-      padding-bottom:10px;
+      flex-direction: row;
+      padding-bottom: 10px;
       padding-top: 10px;
       border-bottom: 1px solid grey;
     }
 
     @media (max-width:600px) {
-      .item{
+      .item {
         flex-direction: column;
       }
     }
@@ -97,6 +97,7 @@
     }
 
     #source {
+      padding-top: 20px;
       font-size: 16px;
       font-weight: 700;
       color: #323132;
@@ -152,7 +153,7 @@
       min-width: 13em;
       margin-top: 5px;
       margin-left: 0.5%;
-      margin-right:0.5%;
+      margin-right: 0.5%;
     }
 
     .dropdown::before {
@@ -204,6 +205,11 @@
 <body>
   <h5 class='visuallyhidden'>The chart canvas is hidden from screen readers. The main message is summarised by the chart title and the data behind the chart is available to download below.</h5>
   <div aria-hidden="true" id="dropdown"></div>
+  <div aria-hidden="true" id="legend">
+    <svg height="10" width="10" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="5" cy="5" r="2.5" fill="#206095"/>
+    </svg> Local authority
+  </div>
   <div aria-hidden="true" id="swarms"></div>
   <div id="source"></div>
   <!-- <h6 class="">Download this chart</h6>
@@ -226,10 +232,14 @@
 
     function drawGraphic() {
 
-      areas = graphic_datas[0].map(function(d) {
+      areas = graphic_datas[0].filter(function(d) {
+        return d.AREACD != "A" //everything apart from the average
+      }).map(function(d) {
         return d.AREACD
       });
-      names = graphic_datas[0].map(function(d) {
+      names = graphic_datas[0].filter(function(d) {
+        return d.AREACD != "A" //everything apart from the average
+      }).map(function(d) {
         return d.AREANM
       });
       margin = dvc.essential.margins;
@@ -277,10 +287,10 @@
 
 
         width = parseInt(d3.select('body').style('width'))
-        if(width>600){
+        if (width > dvc.optional.mobileBreakpoint) {
           chart_width = width - parseInt(d3.select('.info').style('width')) - margin.left - margin.right
-        }else{
-          chart_width = width - margin.left - margin.right//- dvc.essential.infoColumnWidth
+        } else {
+          chart_width = width - margin.left - margin.right //- dvc.essential.infoColumnWidth
         }
         height = dvc.essential.heightperstrip - margin.top - margin.bottom
 
@@ -341,7 +351,15 @@
         thissvg = d3.select("#svg" + selection)
         data = thisdata.filter(function(d) {
           return d[key] != "#N/A"
+        }).filter(function(d){
+          return d.AREACD!="A"
         })
+
+        var averageValue = thisdata.filter(function(d){
+          return d.AREACD==="A"
+        })[0][key]
+
+        console.log('average',averageValue)
 
         //clear svg
         thissvg.selectAll("*").remove()
@@ -362,6 +380,34 @@
 
         for (var i = 0; i < 120; ++i) simulation.tick();
 
+        //draw average line
+        thissvg.append('line')
+          .attr('x1',x(averageValue))
+          .attr('x2',x(averageValue))
+          .attr('y1',0)
+          .attr('y2',height)
+          .attr('stroke','grey')
+          .attr('stroke-dasharray',"5 3")
+
+        if(csvs.indexOf(selection)==0){
+          thissvg.append('text')
+            .attr('x',x(averageValue))
+            .attr('y',-2)
+            .attr('text-anchor','middle')
+            .text('Average')
+        }
+
+        console.log('selection',selection)
+        //draw deprivation arrows
+        if(selection==="deprivation"){
+          thissvg.append('text')
+          .attr('x',x(x.domain()[1]))
+          .attr('y',height-5)
+          .text('More deprived ►')
+          .attr('text-anchor','end')
+        }
+
+
         thissvg.append('g')
           .attr('transform', 'translate(0,' + height + ')')
           .attr('class', 'x axis')
@@ -380,7 +426,9 @@
             .y(function(d) {
               return d.y;
             })
-            .polygons(data)).enter().append("g").attr('class',function(d){return 'g'+d.data.AREACD});
+            .polygons(data)).enter().append("g").attr('class', function(d) {
+            return 'g' + d.data.AREACD
+          });
 
         cell.append("circle")
           .attr("r", dvc.essential.dotradius)
@@ -409,7 +457,7 @@
             clearAreaDropdown();
           });
 
-        if($("#dropselect").val()!=""){
+        if ($("#dropselect").val() != "") {
           highlightDot($("#dropselect").val())
         }
       }
@@ -451,10 +499,9 @@
 
         //this put the unit on the value
         unitOnValue.html(function(d, i) {
-          if(dataLabels[i]!="Data unavailable")
-          {
+          if (dataLabels[i] != "Data unavailable") {
             if (typeof d.unit === "object") {
-              return " " + d.unit[datakeys[i]]
+              return " " + d.unit[datakeys[i]].unit
             } else {
               return " " + d.unit
             }
@@ -490,17 +537,18 @@
       }
 
       function addUnits() {
+        //this function adds units to the beeswarms
+
         getkeys()
+
 
         unitText.html(function(d, i) {
           if (typeof d.unit === "object") {
-            return d.unit[datakeys[i]]
+            return d.unit[datakeys[i]].unit+", "+d.unit[datakeys[i]].time
           } else {
-            return d.unit
+            return d.unit+", "+d.time
           }
         })
-
-
       }
 
       function addClearBehaviour() {
